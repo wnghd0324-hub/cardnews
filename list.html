@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>카드뉴스 · 큐레이션 리스트</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="./_photo.js"></script>
+<link rel="stylesheet" href="./_editor.css" />
+<style>
+/* ============ 큐레이션 리스트형 — 시그니처: 거대 인덱스 넘버 (리스티클) ============ */
+:root{ --font:"Pretendard","Pretendard Variable",-apple-system,sans-serif; --pad:72px; --pb:92px; }
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
+body{background:#0a0a0a;font-family:var(--font);display:flex;flex-direction:column;align-items:center;gap:40px;padding:40px 0;}
+.stage{width:540px;height:675px;}
+.card{position:relative;width:1080px;height:1350px;transform:scale(.5);transform-origin:top left;overflow:hidden;
+  background:#1b1b1b;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;}
+.photo{position:absolute;inset:0;background-size:cover;background-position:center;}
+.placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:repeating-linear-gradient(45deg,#1b1b1b,#1b1b1b 30px,#222 30px,#222 60px);color:#666;font-size:34px;font-weight:600;}
+.scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,.05) 26%,rgba(0,0,0,.3) 60%,rgba(0,0,0,.9) 100%);}
+
+/* 시그니처: 화면을 채우는 거대 인덱스 넘버 */
+.bignum{position:absolute;top:-130px;left:-20px;z-index:2;font-size:780px;font-weight:900;line-height:1;
+  letter-spacing:-20px;color:rgba(255,255,255,.16);}
+.bignum.two{font-size:540px;top:-70px;left:-16px;letter-spacing:-28px;}   /* 두 자리(10) 대응 */
+
+.content{position:relative;z-index:3;padding:0 var(--pad) var(--pb);display:flex;flex-direction:column;gap:16px;}
+.content.center{height:100%;justify-content:center;}
+.badge{align-self:flex-start;border:2px solid rgba(255,255,255,.6);font-size:30px;font-weight:800;padding:11px 26px;border-radius:999px;}
+.iname{font-size:86px;font-weight:900;letter-spacing:-2px;line-height:1.08;word-break:keep-all;
+  min-height:2.16em;}   /* 이름 자리에 항상 2줄 공간 확보 → 1줄이든 2줄이든 시작 위치 고정(위쪽) */
+.reason{font-size:40px;font-weight:500;line-height:1.5;opacity:.95;word-break:keep-all;}
+.head{font-size:84px;font-weight:900;line-height:1.14;letter-spacing:-2px;word-break:keep-all;}
+.sub{font-size:38px;font-weight:500;opacity:.85;line-height:1.5;word-break:keep-all;}
+.followp{align-self:flex-start;margin-top:18px;background:#fff;color:#111;font-size:36px;font-weight:800;padding:20px 42px;border-radius:999px;}
+
+/* 저장 UI */
+.saveAll{background:#fff;color:#000;border:none;font-weight:800;font-size:16px;padding:12px 26px;border-radius:10px;cursor:pointer;font-family:inherit;}
+.hint{color:#888;font-size:14px;max-width:560px;text-align:center;line-height:1.7;}
+.row{display:flex;gap:16px;}.saveBtn{background:#fff;color:#000;border:none;font-family:inherit;font-weight:700;font-size:15px;padding:9px 18px;border-radius:8px;cursor:pointer;}
+</style>
+</head>
+<body>
+<button class="saveAll" onclick="saveAll()">⬇︎ 전체 PNG로 저장</button>
+<p class="hint"><b>큐레이션 리스트형</b> — 거대 인덱스 넘버. 항목은 최대 10개까지, 필요 없는 item 은 통째로 지우면 됩니다. 사진은 <b>img/</b>, 글자는 아래 <b>CARDS</b>만.</p>
+<div id="deck"></div>
+
+<script>
+/* =====================================================================
+   ✏️  큐레이션 리스트형 — 예: 입문 장비
+   layout: "cover" / "item"(거대번호+이름+이유) / "outro"
+   ── item 은 필요한 만큼(최대 10). n 값이 번호로 쓰입니다.
+   ===================================================================== */
+window.CARDS = [
+  { layout:"cover", image:"./img/01.jpg", badge:"아마추어 추천템",
+    head:"이제 막 시작했다면<br>이것부터, 입문 장비", sub:"비싸지 않아도 되는 것들만 골랐어요." },
+
+  { layout:"item", n:1,  image:"./img/02.jpg", name:"그립 양말",       reason:"신발 안에서 발 밀림을 잡아주는 가성비 끝판왕. 만 원대로 체감 큼." },
+  { layout:"item", n:2,  image:"./img/03.jpg", name:"정강이 보호대",   reason:"한 번 까이면 바로 안다. 안전을 위한 사실상 필수템." },
+  { layout:"item", n:3,  image:"./img/04.jpg", name:"풋살화(TF)",       reason:"잔디·인조·맨땅 어디서나 신는 만능 밑창. 첫 신발로 무난." },
+  { layout:"item", n:4,  image:"./img/05.jpg", name:"쿠션 스포츠 양말", reason:"물집·피로 줄여주는 기본 중의 기본. 면양말과는 다르다." },
+  { layout:"item", n:5,  image:"./img/06.jpg", name:"폼롤러",           reason:"경기 후 회복까지가 운동. 다음 날 컨디션이 달라진다." },
+  { layout:"item", n:6,  image:"./img/07.jpg", name:"기능성 이너웨어",  reason:"땀 배출·체온 조절로 여름·겨울 모두 쾌적하게." },
+  { layout:"item", n:7,  image:"./img/08.jpg", name:"개인 축구공",       reason:"내 공으로 연습해야 는다. 4·5호 규격 확인은 필수." },
+  { layout:"item", n:8,  image:"./img/09.jpg", name:"쉐이커·물통",       reason:"수분·전해질 보충. 여름 풋살엔 사실상 생존템." },
+  { layout:"item", n:9,  image:"./img/10.jpg", name:"무릎 슬리브",       reason:"관절이 불안하면 하나쯤. 오래 뛰려면 보호가 먼저." },
+  { layout:"item", n:10, image:"./img/11.jpg", name:"스포츠 백",         reason:"장비가 늘면 결국 필요. 신발·옷·공을 한 번에." },
+
+  { layout:"outro", image:"./img/12.jpg",
+    head:"장비는 사치가 아니라<br>기본이에요",
+    sub:"매주 뛰는 당신을 위한 장비 이야기, 매주 가볍게 올립니다.",
+    follow:"팔로우하고 더 보기 →" },
+];
+
+function nl(s){return String(s||"").replace(/\n/g,"<br>");}
+
+function render(c){
+  if(c.layout==="cover"){
+    return `${window.photoDiv(c)}<div class="scrim"></div>
+      <div class="content"><div class="badge">${nl(c.badge||"아마추어 추천템")}</div>
+      <div class="head">${nl(c.head||"")}</div>${c.sub?`<div class="sub">${nl(c.sub)}</div>`:""}</div>`;
+  }
+  if(c.layout==="outro"){
+    return `${window.photoDiv(c)}<div class="scrim"></div><div class="content center">
+      <div class="head">${nl(c.head||"")}</div>${c.sub?`<div class="sub">${nl(c.sub)}</div>`:""}
+      ${c.follow?`<div class="followp">${nl(c.follow)}</div>`:""}</div>`;
+  }
+  // item
+  return `${window.photoDiv(c)}<div class="scrim"></div>
+    <div class="bignum${c.n>=10?' two':''}">${c.n}</div>
+    <div class="content"><div class="iname">${nl(c.name||"")}</div><div class="reason">${nl(c.reason||"")}</div></div>`;
+}
+
+const deck=document.getElementById("deck");
+window.renderDeck=function(){
+  deck.innerHTML="";
+  CARDS.forEach((c,i)=>{
+    const stage=document.createElement("div");stage.className="stage";
+    const card=document.createElement("div");card.className="card";card.id="card"+i;card.innerHTML=render(c);
+    stage.appendChild(card);deck.appendChild(stage);
+    const row=document.createElement("div");row.className="row";
+    const b=document.createElement("button");b.className="saveBtn";b.textContent=`이 카드 PNG 저장 (${i+1}번)`;b.onclick=()=>saveCard(i);
+    row.appendChild(b);deck.appendChild(row);
+  });
+};
+window.renderDeck();
+window.saveCard=saveCard; window.saveAll=saveAll;
+async function saveCard(i){ await window.saveCardCanvas(i, CARDS[i]); }
+async function saveAll(){for(let i=0;i<CARDS.length;i++){await saveCard(i);await new Promise(r=>setTimeout(r,400));}}
+
+/* ── 편집기 연결 ── */
+window.EDITOR_SCHEMA = {
+  title:"큐레이션 리스트형",
+  note:"표지·항목·아웃트로. 항목은 ＋로 추가, 필요 없으면 삭제. 페이지별로 다른 칸이 떠요.",
+  fields:[
+    {key:"image",  label:"사진", type:"image"},
+    {key:"badge",  label:"상단 배지", type:"text",     when:"cover"},
+    {key:"head",   label:"헤드라인", type:"rich",       when:["cover","outro"], hint:"줄바꿈=Enter"},
+    {key:"sub",    label:"부제", type:"textarea",       when:["cover","outro"]},
+    {key:"follow", label:"팔로우 버튼 문구", type:"text", when:"outro"},
+    {key:"n",      label:"순번 (큰 숫자)", type:"number", when:"item"},
+    {key:"name",   label:"항목 이름", type:"text",       when:"item"},
+    {key:"reason", label:"추천 이유", type:"textarea",   when:"item"},
+  ]
+};
+</script>
+<script src="./_editor.js"></script>
+</body>
+</html>

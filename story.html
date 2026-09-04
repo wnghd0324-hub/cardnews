@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>카드뉴스 · 스토리/정보형</title>
+
+<link rel="stylesheet" href="./_brand.css" />
+<link rel="stylesheet" href="./_editor.css" />
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+<body>
+
+<button class="saveAll" onclick="saveAll()">⬇︎ 전체 PNG로 저장</button>
+<p class="hint">
+  ① 사진은 <b>cardnews/img/</b> 폴더에 넣고 아래 <b>image</b> 경로만 바꾸면 됩니다.<br>
+  ② 글자는 아래 <b>CARDS</b>의 head / body 만 고치세요. 디자인은 자동입니다.<br>
+  ③ 밝은 사진이면 그 카드에 <b>theme:"dark"</b> 를 넣어 검은 글씨로 바꾸세요.
+</p>
+
+<div id="deck"></div>
+
+<script>
+/* =====================================================================
+   ✏️  여기 내용만 바꾸면 새 카드뉴스가 됩니다. (디자인은 _brand.css 가 담당)
+   - image : ./img/파일명.jpg  (또는 https:// URL). 없으면 안내가 뜸
+   - head  : 헤드라인.  강조는 <span class="box">검정박스</span> / <span class="xl">크게</span>
+   - body  : 본문(2줄 권장). 줄바꿈은 \n
+   - theme : "light"(기본) | "dark"(밝은 사진일 때)
+   - handle: "@계정명" (선택, 우하단)
+   ===================================================================== */
+window.CARDS = [
+  {
+    image: "./img/01.jpg",
+    head:  "양말 디자인이 불러온<br><span class=\"xl\"><span class=\"box\">8,000만 원 벌금</span></span>",
+    body:  "Trusox 착용으로 벌금이 부과된 잉글랜드 대표팀",
+  },
+  {
+    image: "./img/02.jpg",
+    head:  "벌금 부과",
+    body:  "2018년 7월 러시아 월드컵이 진행되던 중, 잉글랜드 대표팀에게 벌금이 부과된다.\n벌금은 70,000 스위스 프랑, 당시 기준 한화로 약 8,000만 원 정도였다.",
+  },
+  {
+    image: "./img/03.jpg",
+    head:  "위반 사항",
+    body:  "벌금이 부과된 사유는 잉글랜드 대표팀 선수들의 장비 및 마케팅 규정 위반이었다.\n경기 중 논슬립 양말인 ‘Trusox’를 신었던 것이 문제가 됐던 것이다.",
+  },
+  {
+    image: "./img/04.jpg",
+    theme: "dark",   // 밝은 사진용: 글씨를 검정으로 (다른 카드와 톤이 다른 이유)
+    head:  "빡빡한 규정",
+    body:  "FIFA의 장비 규정은 대표팀 공식 킷 외 승인되지 않은 장비를 노출하면 위반이며,\n미디어/마케팅 규정엔 경기 중 비인가 브랜드의 노출을 금지한다고 명시하고 있다.",
+  },
+  {
+    image: "./img/05.jpg",
+    head:  "착용은 무죄",
+    body:  "논슬립 양말을 착용하는 것 자체는 금지하고 있지 않으나, 브랜드 노출이 문제다.\n그렇기에 선수들은 브랜드의 로고를 감추거나, 아예 로고가 없는 양말을 착용한다.",
+  },
+  {
+    image: "./img/06.jpg",
+    head:  "시그니처 패턴",
+    body:  "그러나 ‘Trusox’의 경우엔 발목 부분 특유의 사각형 패턴으로 인해,\n특정성이 확립되어 비인가 브랜드 노출로 간주한 것으로 보인다.",
+  },
+  {
+    image: "./img/07.jpg",
+    head:  "경고 누적",
+    body:  "이 때문에 FIFA는 조별리그 경기 중에도 잉글랜드 대표팀에게 한 차례 경고했었다.\n그때는 단순한 주의에서 끝났지만, 위반이 반복되자 벌금 처분을 내린 것이다.",
+  },
+  {
+    image: "./img/08.jpg",
+    head:  "항의 기각",
+    body:  "잉글랜드 축구협회는 선수들의 개별 장비 선택이라며, 이의 제기 의사를 표명했다.\n그러나 FIFA는 별 다른 움직임을 보이지 않으며, 사건은 종결됐다.",
+  },
+];
+
+/* ── 편집기 연결 ── */
+window.EDITOR_SCHEMA = {
+  title:"스토리/정보형",
+  note:"사진·헤드라인·본문만 바꾸면 돼요. 밝은 사진이면 테마를 '어두운 글씨'로.",
+  fields:[
+    {key:"image", label:"사진", type:"image"},
+    {key:"head",  label:"헤드라인", type:"rich", emph:true, emphClass:"box", emphLabel:"검정 박스 강조", hint:"줄바꿈=Enter · 강조할 글자 선택 후 [검정 박스 강조]"},
+    {key:"body",  label:"본문 (2줄 권장)", type:"textarea"},
+    {key:"theme", label:"글씨 테마", type:"select", options:[{value:"light",label:"밝은 글씨 (기본, 어두운 사진용)"},{value:"dark",label:"어두운 글씨 (밝은 사진용)"}]},
+    {key:"handle",label:"계정 핸들 (선택)", type:"text"},
+  ]
+};
+</script>
+<script src="./_photo.js"></script>
+<script src="./_engine.js"></script>
+<script src="./_editor.js"></script>
+</body>
+</html>

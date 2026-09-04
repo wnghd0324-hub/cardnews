@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>카드뉴스 · 속보/유출 (뉴스 헤드라인형)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<link rel="stylesheet" href="./_editor.css" />
+<style>
+/* ============ 뉴스 헤드라인형 (속보/유출) — weekend_motorsport 참고 ============ */
+:root{
+  --red:#EE2E24; --bg:#080808; --white:#fff; --sub:#c9c9c9;
+  --font:"Pretendard","Pretendard Variable",-apple-system,sans-serif;
+  --pad:64px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
+body{background:#0a0a0a;font-family:var(--font);display:flex;flex-direction:column;align-items:center;gap:40px;padding:40px 0;}
+.stage{width:540px;height:675px;}
+.card{position:relative;width:1080px;height:1350px;transform:scale(.5);transform-origin:top left;overflow:hidden;background:var(--bg);}
+.photo{position:absolute;inset:0;background-size:cover;background-position:center;}
+.placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:repeating-linear-gradient(45deg,#1b1b1b,#1b1b1b 30px,#222 30px,#222 60px);color:#666;font-size:34px;font-weight:600;}
+
+/* 테두리: 상단은 그대로, 좌우는 중간쯤에서 서서히 사라짐, 하단 없음 */
+.edge-t{position:absolute;top:0;left:0;right:0;height:7px;background:var(--red);z-index:5;pointer-events:none;}
+.edge-l,.edge-r{position:absolute;top:0;width:7px;height:60%;z-index:5;pointer-events:none;
+  background:linear-gradient(180deg,var(--red) 0%,var(--red) 20%,rgba(238,46,36,0) 100%);}
+.edge-l{left:0;} .edge-r{right:0;}
+
+/* 상단 행: 좌측 브랜드 / 우측 종목 (사진 위) */
+.toprow{position:absolute;top:46px;left:var(--pad);right:var(--pad);z-index:4;
+  display:flex;align-items:center;justify-content:space-between;
+  text-shadow:0 2px 12px rgba(0,0,0,.5);}
+.brand{color:#fff;font-size:36px;font-weight:900;letter-spacing:1px;display:flex;align-items:center;gap:14px;}
+.brand .bars{display:inline-block;width:0;height:34px;border-left:7px solid var(--red);
+  box-shadow:14px 0 0 var(--red),28px 0 0 var(--red);margin-right:24px;}
+.cat{color:#fff;font-size:30px;font-weight:800;letter-spacing:3px;opacity:.95;}
+
+/* 하단: 사진이 어두워지며 헤드라인 */
+.lower{position:absolute;left:0;right:0;bottom:0;z-index:4;
+  padding:230px var(--pad) 92px;
+  background:linear-gradient(180deg,rgba(8,8,8,0) 0%,rgba(8,8,8,.82) 36%,var(--bg) 70%);}
+.lower::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.5;
+  background:repeating-linear-gradient(115deg,transparent 0 38px,rgba(255,255,255,.025) 38px 40px);}
+.tag{display:inline-block;background:var(--red);color:#fff;font-size:30px;font-weight:900;
+  letter-spacing:1.5px;padding:9px 20px;margin-bottom:26px;}
+.head{color:#fff;font-size:94px;font-weight:900;line-height:1.03;letter-spacing:-3px;word-break:keep-all;}
+.head .red{color:var(--red);}
+.sub{color:var(--sub);font-size:40px;font-weight:500;line-height:1.35;letter-spacing:-.5px;margin-top:26px;word-break:keep-all;}
+
+/* 저장 UI */
+.saveAll{background:#fff;color:#000;border:none;font-weight:800;font-size:16px;padding:12px 26px;border-radius:10px;cursor:pointer;font-family:inherit;}
+.hint{color:#888;font-size:14px;max-width:560px;text-align:center;line-height:1.7;}
+.row{display:flex;gap:16px;}.saveBtn{background:#fff;color:#000;border:none;font-family:inherit;font-weight:700;font-size:15px;padding:9px 18px;border-radius:8px;cursor:pointer;}
+</style>
+</head>
+<body>
+<button class="saveAll" onclick="saveAll()">⬇︎ 전체 PNG로 저장</button>
+<p class="hint"><b>속보/유출형</b> — 빨강 테두리 + 좌상단 브랜드 + 작은 빨강 태그 + 헤드라인/서브. 사진은 <b>img/</b>, 글자는 아래 <b>CARDS</b>만.</p>
+<div id="deck"></div>
+
+<script>
+/* =====================================================================
+   ✏️  속보/유출형 — 예: 축구화 유출
+   - brand : 좌상단 브랜드명 (기본 "KICKOFF")
+   - cat   : 우상단 종목/카테고리 (예 "K LEAGUE", 선택)
+   - tag   : 작은 빨강 태그 (예 "BREAKING NEWS" / "속보" / "단독 유출")
+   - head  : 헤드라인. 강조 <span class="red">빨강</span>
+   - sub   : 회색 서브라인 (한 줄 부연)
+   ===================================================================== */
+const BRAND = "KICKOFF";   // 모든 카드 공통 브랜드 (개별 카드에서 brand로 덮어쓰기 가능)
+window.CARDS = [
+  {
+    image:"./img/01.jpg", cat:"FOOTBALL", tag:"BREAKING NEWS",
+    head:'유출된 <span class="red">차기 국대 유니폼</span>',
+    sub:"공식 발표 전, 해외 유출 사진으로 먼저 본 디자인의 핵심은?",
+  },
+  {
+    image:"./img/02.jpg", cat:"FOOTBALL", tag:"속보",
+    head:'홈킷, <span class="red">단색</span>으로 회귀',
+    sub:"복잡한 그래픽을 빼고 클래식 라인으로 돌아왔다.",
+  },
+  {
+    image:"./img/03.jpg", cat:"FOOTBALL", tag:"디테일",
+    head:'엠블럼 위치가<br>바뀌었다',
+    sub:"중앙에서 좌측 가슴으로 — 1970년대 복각으로 추정된다.",
+  },
+  {
+    image:"./img/04.jpg", cat:"FOOTBALL", tag:"전망",
+    head:'출시는 <span class="red">8월</span> 유력',
+    sub:"정식 공개되는 대로 바로 정리해서 올립니다.",
+  },
+];
+
+function nl(s){return String(s||"").replace(/\n/g,"<br>");}
+function render(c){
+  const pos=c.pos||"50% 50%", zoom=c.zoom||1;
+  // 확대는 transform이 아니라 background-size로 처리 → 확대 시 상하·좌우 모두 드래그 가능 + 화질 유지
+  let bsize="cover";
+  if(c._w&&c._h){ const cover=Math.max(1080/c._w,1350/c._h); bsize=(cover*c._w*zoom).toFixed(1)+"px "+(cover*c._h*zoom).toFixed(1)+"px"; }
+  const bg=c.image?`<div class="photo" style="background-image:url('${c.image}');background-size:${bsize};background-position:${pos}"></div>`:`<div class="placeholder">⬆ 사진 (image)</div>`;
+  return `${bg}
+    <div class="toprow">
+      <div class="brand"><span class="bars"></span>${nl(c.brand||BRAND)}</div>
+    </div>
+    <div class="lower">
+      ${c.tag?`<div class="tag">${nl(c.tag)}</div>`:""}
+      <div class="head">${nl(c.head||"")}</div>
+      ${c.sub?`<div class="sub">${nl(c.sub)}</div>`:""}
+    </div>
+    <div class="edge-t"></div><div class="edge-l"></div><div class="edge-r"></div>`;
+}
+
+const deck=document.getElementById("deck");
+window.renderDeck=function(){
+  deck.innerHTML="";
+  CARDS.forEach((c,i)=>{
+    const stage=document.createElement("div");stage.className="stage";
+    const card=document.createElement("div");card.className="card";card.id="card"+i;card.innerHTML=render(c);
+    stage.appendChild(card);deck.appendChild(stage);
+    const row=document.createElement("div");row.className="row";
+    const b=document.createElement("button");b.className="saveBtn";b.textContent=`이 카드 PNG 저장 (${i+1}번)`;b.onclick=()=>saveCard(i);
+    row.appendChild(b);deck.appendChild(row);
+  });
+};
+window.renderDeck();
+window.saveCard=saveCard; window.saveAll=saveAll;
+/* 이미지 원본 크기 읽기 */
+function imgSize(src){return new Promise(res=>{if(!src)return res(null);const im=new Image();im.onload=()=>res({w:im.naturalWidth,h:im.naturalHeight});im.onerror=()=>res(null);im.src=src;});}
+/* 원본을 안 늘리는 선에서 낼 수 있는 최대 저장배율 (1~3배) */
+async function bestScale(c){
+  const sz=await imgSize(c&&c.image); if(!sz) return 2;
+  const zoom=(c&&c.zoom)||1;
+  const cover=Math.max(1080/sz.w,1350/sz.h);
+  const srcVisibleW=(1080/cover)/zoom;   // 보이는 영역에 실제 쓰이는 원본 가로 픽셀
+  let s=srcVisibleW/1080;                 // 이만큼까지는 늘려도 안 뭉개짐
+  return Math.max(1,Math.min(3,Math.round(s*100)/100));
+}
+async function saveCard(i){const el=document.getElementById("card"+i);
+  const scale=await bestScale(CARDS[i]);
+  const cv=await html2canvas(el,{width:1080,height:1350,scale,backgroundColor:null,useCORS:true,onclone:d=>{d.getElementById("card"+i).style.transform="none";}});
+  const a=document.createElement("a");a.download=`cardnews_${String(i+1).padStart(2,"0")}.png`;a.href=cv.toDataURL("image/png");a.click();}
+async function saveAll(){for(let i=0;i<CARDS.length;i++){await saveCard(i);await new Promise(r=>setTimeout(r,400));}}
+
+/* ── 편집기 연결: 어떤 칸을 보여줄지 설명 (디자인엔 영향 없음) ── */
+window.EDITOR_SCHEMA = {
+  title:"속보/유출형",
+  note:"글자·사진을 바꾸면 오른쪽 미리보기에 바로 반영돼요.",
+  emphColor:"#EE2E24",
+  fields:[
+    {key:"image", label:"사진",            type:"image"},
+    {key:"tag",   label:"태그 (빨강 라벨)",  type:"text"},
+    {key:"head",  label:"헤드라인",          type:"rich", emph:true, emphClass:"red", emphLabel:"빨강 강조", hint:"강조할 글자를 드래그로 선택 후 [빨강 강조]"},
+    {key:"sub",   label:"서브라인",          type:"textarea"},
+    {key:"brand", label:"브랜드 (비우면 기본값)", type:"text"},
+  ]
+};
+</script>
+<script src="./_editor.js"></script>
+</body>
+</html>

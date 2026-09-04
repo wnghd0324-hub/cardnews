@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>카드뉴스 · 인터뷰 (매거진형)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;700;900&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..900&display=swap" />
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="./_photo.js"></script>
+<link rel="stylesheet" href="./_editor.css" />
+<style>
+/* ============ 매거진형 (인터뷰) — 명조 + 크림 종이 ============ */
+:root{
+  --paper:#F1ECE2; --ink:#1A1714; --rule:rgba(26,23,20,.28); --accent:#B23A2E;
+  --serif:"Noto Serif KR",serif;
+  --sans:"Pretendard","Pretendard Variable",-apple-system,sans-serif;
+  --pad:96px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
+body{background:#0a0a0a;font-family:var(--sans);display:flex;flex-direction:column;align-items:center;gap:40px;padding:40px 0;}
+.stage{width:540px;height:675px;}
+.card{position:relative;width:1080px;height:1350px;transform:scale(.5);transform-origin:top left;overflow:hidden;background:var(--paper);}
+.photo{position:absolute;inset:0;background-size:cover;background-position:center;}
+.placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:repeating-linear-gradient(45deg,#1b1b1b,#1b1b1b 30px,#222 30px,#222 60px);color:#666;font-size:34px;font-weight:600;}
+.pageno{position:absolute;bottom:60px;right:var(--pad);z-index:3;font-family:var(--serif);font-style:italic;font-size:34px;}
+.mast{position:absolute;top:64px;left:0;right:0;z-index:3;text-align:center;font-family:var(--sans);font-size:26px;font-weight:700;letter-spacing:6px;}
+
+/* ============ 표지 (cover) = 진짜 잡지 표지 ============ */
+.cover .scrim{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.05) 26%,rgba(0,0,0,0) 46%,rgba(0,0,0,.4) 66%,rgba(0,0,0,.85) 100%);}
+/* 마스트헤드 */
+.cover .masthead{position:absolute;top:48px;left:0;right:0;z-index:3;text-align:center;color:#fff;}
+/* Vogue풍 제호: Bodoni(디도 계열) + 넓은 자간으로 상단에 쫙 */
+.cover .masthead .title{font-family:"Bodoni Moda",var(--serif);font-weight:500;font-size:190px;line-height:.82;
+  letter-spacing:12px;text-indent:12px;padding:0 40px;}
+.cover .masthead .tagline{font-family:var(--sans);font-size:24px;font-weight:600;letter-spacing:10px;opacity:.92;margin-top:8px;}
+.cover .issue{position:absolute;top:78px;right:var(--pad);z-index:4;color:#fff;font-family:var(--serif);font-style:italic;font-size:30px;text-align:right;line-height:1.5;}
+/* 커버라인 (하단) */
+.cover .foot{position:absolute;left:var(--pad);right:var(--pad);bottom:104px;z-index:3;color:#fff;}
+.cover .kicker{font-family:var(--sans);font-size:26px;font-weight:800;letter-spacing:7px;color:#fff;
+  background:var(--accent);display:inline-block;padding:8px 18px;margin-bottom:22px;}
+.cover .name{font-family:var(--serif);font-weight:900;font-size:126px;line-height:.98;letter-spacing:-2px;}
+.cover .role{font-family:var(--serif);font-size:36px;margin-top:18px;opacity:.92;}
+/* 주변에 떠다니는 커버 티저 (질문/주제) — 코너에 깔끔하게 */
+.cover .teaser{position:absolute;z-index:3;color:#fff;font-family:var(--serif);font-weight:500;
+  font-size:38px;line-height:1.3;max-width:500px;word-break:keep-all;text-shadow:0 2px 16px rgba(0,0,0,.6);}
+.cover .teaser .b{display:block;width:46px;height:4px;background:var(--accent);margin-bottom:14px;}
+.cover .t-tl{top:360px;left:var(--pad);text-align:left;}
+.cover .t-r{top:710px;right:var(--pad);text-align:right;max-width:430px;}
+.cover .t-r .b{margin-left:auto;}
+
+/* ============ 종이 페이지(quote / qa) ============ */
+.paper{background:var(--paper);color:var(--ink);padding:var(--pad);display:flex;flex-direction:column;justify-content:center;}
+.paper .mast{color:var(--ink);opacity:.7;}
+.quote .qmark{font-family:var(--serif);font-weight:900;font-size:240px;line-height:.6;color:var(--ink);opacity:.18;}
+.quote .qtext{font-family:var(--serif);font-weight:700;font-size:78px;line-height:1.4;letter-spacing:-1px;word-break:keep-all;margin-top:-30px;}
+.quote .qby{margin-top:48px;font-family:var(--sans);font-size:30px;font-weight:700;letter-spacing:3px;opacity:.7;}
+.quote .qby::before{content:"";display:inline-block;width:60px;height:2px;background:var(--ink);opacity:.5;vertical-align:middle;margin-right:18px;}
+.qa .rule{height:2px;background:var(--rule);margin-bottom:50px;}
+.qa .q{font-family:var(--serif);font-weight:900;font-size:62px;line-height:1.3;letter-spacing:-1px;word-break:keep-all;}
+.qa .q .mark{display:block;font-size:46px;opacity:.45;margin-bottom:14px;}
+.qa .a{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1.7;word-break:keep-all;margin-top:40px;}
+.qa .a .cap{float:left;font-weight:700;font-size:120px;line-height:.82;padding:6px 18px 0 0;}
+
+/* ============ 종이 페이지에 사진 얹기(quote/qa + image) ============ */
+.paper.on-photo{ background:#111; color:#fff; }
+.paper.on-photo .photo{ z-index:-2; }
+.paper.on-photo .mag-scrim{ position:absolute; inset:0; z-index:-1;
+  background:linear-gradient(180deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.35) 45%,rgba(0,0,0,.7) 100%); }
+.paper.on-photo .mast{ color:#fff; opacity:.9; }
+.paper.on-photo .qmark{ color:#fff; opacity:.32; }
+.paper.on-photo .qtext{ text-shadow:0 2px 20px rgba(0,0,0,.5); }
+.paper.on-photo .qby{ opacity:.95; }
+.paper.on-photo .qby::before{ background:#fff; }
+.paper.on-photo .rule{ background:rgba(255,255,255,.5); }
+.paper.on-photo .q, .paper.on-photo .a{ text-shadow:0 2px 20px rgba(0,0,0,.5); }
+
+/* ============ 풀사진 페이지(photo) ============ */
+.photopage .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,0) 60%,rgba(0,0,0,.7) 100%);}
+.photopage .cap{position:absolute;left:var(--pad);bottom:90px;z-index:3;color:#fff;font-family:var(--serif);font-style:italic;font-size:36px;}
+
+/* 저장 UI */
+.saveAll{background:#fff;color:#000;border:none;font-weight:800;font-size:16px;padding:12px 26px;border-radius:10px;cursor:pointer;font-family:inherit;}
+.hint{color:#888;font-size:14px;max-width:560px;text-align:center;line-height:1.7;}
+.row{display:flex;gap:16px;}.saveBtn{background:#fff;color:#000;border:none;font-family:inherit;font-weight:700;font-size:15px;padding:9px 18px;border-radius:8px;cursor:pointer;}
+</style>
+</head>
+<body>
+<button class="saveAll" onclick="saveAll()">⬇︎ 전체 PNG로 저장</button>
+<p class="hint"><b>인터뷰(매거진)형</b> — 잡지 표지(마스트헤드+커버라인) → 풀쿼트 → 질문답변. 사진은 <b>img/</b>, 글자는 아래 <b>CARDS</b>만.</p>
+<div id="deck"></div>
+
+<script>
+/* =====================================================================
+   ✏️  인터뷰(매거진)형
+   layout: "cover"(잡지 표지) · "quote"(풀쿼트) · "qa"(질문답변) · "photo"(풀사진)
+   표지(cover) 필드:
+     title  : 잡지 제호 (마스트헤드, 예 "ORANGE")
+     tagline: 제호 아래 한 줄 (예 "FOOTBALL CULTURE")
+     issue  : 우상단 호수/날짜
+     kicker : 작은 라벨 (예 "INTERVIEW")
+     name   : 표지 인물 이름 (메인 커버라인)
+     role   : 인물 소개
+     lines  : 커버라인 티저 배열 (인터뷰 안의 질문/주제 미리보기)
+   ===================================================================== */
+const MAST = "LIKIT · INTERVIEW";   // 내지 상단 마스트헤드
+window.CARDS = [
+  { layout:"cover", image:"./img/01.jpg",
+    title:"LIKIT", tagline:"FOOTBALL CULTURE", issue:"No.01\n2026",
+    kicker:"INTERVIEW", name:"박지민", role:"조기축구 10년차 · FC 새벽 주장",
+    lines:[
+      "“장비가 실력을 못 이겨요” — 그가 말하는 진짜 기본",
+      "가격표 앞에서 멈췄던 그가 풋살화를 바꾼 이유",
+      "마흔까지 다치지 않고 뛰는 법",
+    ] },
+
+  { layout:"quote",
+    quote:"장비가 실력을\n못 이겨요.\n근데 자신감은 주죠.", by:"박지민", page:"02" },
+
+  { layout:"qa",
+    q:"왜 풋살화였나요?",
+    a:"처음엔 가격 때문이었어요. 근데 내 발에 맞는 한 켤레를 찾고 나선 생각이 바뀌었죠. 매주 나가는 사람한테 장비는 사치가 아니라 기본이더라고요.",
+    page:"03" },
+
+  { layout:"photo", image:"./img/02.jpg", caption:"새벽 6시, 그의 구장에서.", page:"04" },
+
+  { layout:"qa",
+    q:"앞으로의 목표는?",
+    a:"마흔까지 다치지 않고 뛰는 거요. 그러려면 결국 장비랑 관리예요. 화려한 거 말고, 나한테 맞는 거.",
+    page:"05" },
+];
+
+function nl(s){return String(s||"").replace(/\n/g,"<br>");}
+function render(c){
+  const photo = window.photoDiv(c);   // 공용 사진 처리(_photo.js)
+  const mast = `<div class="mast">${MAST}</div>`;
+  const pageno = c.page?`<div class="pageno">${c.page}</div>`:"";
+
+  if(c.layout==="cover"){
+    const L=c.lines||[];
+    const t0=L[0]?`<div class="teaser t-tl"><span class="b"></span>${nl(L[0])}</div>`:"";
+    const t1=L[1]?`<div class="teaser t-r"><span class="b"></span>${nl(L[1])}</div>`:"";
+    return `${photo}<div class="scrim"></div>
+      <div class="masthead"><div class="title">${nl(c.title||"ORANGE")}</div>
+        ${c.tagline?`<div class="tagline">${nl(c.tagline)}</div>`:""}</div>
+      ${c.issue?`<div class="issue">${nl(c.issue)}</div>`:""}
+      ${t0}${t1}
+      <div class="foot">
+        ${c.kicker?`<div class="kicker">${nl(c.kicker)}</div>`:""}
+        <div class="name">${nl(c.name||"")}</div>
+        ${c.role?`<div class="role">${nl(c.role)}</div>`:""}
+      </div>`;
+  }
+  if(c.layout==="quote"){
+    return `${c.image?photo+'<div class="mag-scrim"></div>':""}${mast}<div class="qmark">“</div>
+      <div class="qtext">${nl(c.quote||"")}</div>
+      ${c.by?`<div class="qby">${nl(c.by)}</div>`:""}${pageno}`;
+  }
+  if(c.layout==="photo"){
+    return `${photo}<div class="scrim"></div>${mast}
+      ${c.caption?`<div class="cap">${nl(c.caption)}</div>`:""}${pageno}`;
+  }
+  return `${c.image?photo+'<div class="mag-scrim"></div>':""}${mast}<div class="rule"></div>
+    <div class="q"><span class="mark">Q.</span>${nl(c.q||"")}</div>
+    <div class="a">${c.a?`<span class="cap">${c.a.charAt(0)}</span>${nl(c.a.slice(1))}`:""}</div>${pageno}`;
+}
+
+const deck=document.getElementById("deck");
+window.renderDeck=function(){
+  deck.innerHTML="";
+  CARDS.forEach((c,i)=>{
+    const stage=document.createElement("div");stage.className="stage";
+    const card=document.createElement("div");
+    let base=(c.layout==="cover"?"cover":c.layout==="photo"?"photopage":"paper "+(c.layout||""));
+    if((c.layout==="quote"||c.layout==="qa")&&c.image) base+=" on-photo";   // 종이 페이지에 사진 얹기
+    card.className="card "+base;
+    card.id="card"+i;card.innerHTML=render(c);
+    stage.appendChild(card);deck.appendChild(stage);
+    const row=document.createElement("div");row.className="row";
+    const b=document.createElement("button");b.className="saveBtn";b.textContent=`이 카드 PNG 저장 (${i+1}번)`;b.onclick=()=>saveCard(i);
+    row.appendChild(b);deck.appendChild(row);
+  });
+};
+window.renderDeck();
+window.saveCard=saveCard; window.saveAll=saveAll;
+async function saveCard(i){ await window.saveCardCanvas(i, CARDS[i]); }
+async function saveAll(){for(let i=0;i<CARDS.length;i++){await saveCard(i);await new Promise(r=>setTimeout(r,400));}}
+
+/* ── 편집기 연결 ── */
+window.EDITOR_SCHEMA = {
+  title:"인터뷰(매거진)형",
+  note:"표지·풀쿼트·질문답변·풀사진. 페이지 종류에 따라 뜨는 칸이 달라져요.",
+  fields:[
+    {key:"image",   label:"사진 (풀쿼트·Q&A에 넣으면 사진 위 흰 글씨로 바뀜)", type:"image"},
+    {key:"title",   label:"제호 (마스트헤드)", type:"text", when:"cover"},
+    {key:"tagline", label:"제호 아래 한 줄", type:"text", when:"cover"},
+    {key:"issue",   label:"호수/날짜 (우상단)", type:"textarea", when:"cover", hint:"줄바꿈 가능"},
+    {key:"kicker",  label:"라벨 (예: INTERVIEW)", type:"text", when:"cover"},
+    {key:"name",    label:"표지 인물 이름", type:"text", when:"cover"},
+    {key:"role",    label:"인물 소개", type:"text", when:"cover"},
+    {key:"lines",   label:"커버라인 (한 줄에 하나)", type:"textarea", asList:true, when:"cover", hint:"엔터로 여러 개 · 최대 2개 표시"},
+    {key:"quote",   label:"인용문", type:"textarea", when:"quote", hint:"줄바꿈 가능"},
+    {key:"by",      label:"말한 사람", type:"text", when:"quote"},
+    {key:"q",       label:"질문 (Q)", type:"textarea", when:"qa"},
+    {key:"a",       label:"답변 (A)", type:"textarea", when:"qa"},
+    {key:"caption", label:"사진 설명", type:"text", when:"photo"},
+    {key:"page",    label:"페이지 번호", type:"text", when:["quote","qa","photo"]},
+  ]
+};
+</script>
+<script src="./_editor.js"></script>
+</body>
+</html>
