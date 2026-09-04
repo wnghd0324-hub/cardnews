@@ -89,6 +89,14 @@ textarea.ed-in{ min-height:64px; }
 .ed-zoom span{ font-size:12px; color:var(--ed-mut); font-weight:700; }
 .ed-zoom input[type=range]{ flex:1; accent-color:var(--ed-acc); }
 
+/* 후보 사진 스트립 (탭해서 교체) */
+.ed-cands{ margin-top:12px; }
+.ed-cands-lab{ font-size:11.5px; color:var(--ed-mut); font-weight:700; margin-bottom:6px; }
+.ed-cands-row{ display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; -webkit-overflow-scrolling:touch; }
+.ed-cand{ flex:0 0 auto; width:60px; height:60px; border-radius:8px; border:2px solid var(--ed-line);
+  background:#0f0f0f center/cover no-repeat; cursor:pointer; padding:0; }
+.ed-cand.on{ border-color:var(--ed-acc); box-shadow:0 0 0 2px rgba(238,122,31,.4); }
+
 /* 하단 액션 바 */
 .ed-foot{ border-top:1px solid var(--ed-line); padding:14px 20px; display:flex; flex-direction:column; gap:8px; }
 .ed-foot .rowb{ display:flex; gap:8px; }

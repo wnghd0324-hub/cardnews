@@ -174,7 +174,7 @@
       Array.prototype.forEach.call(tabs.querySelectorAll(".ed-tab"), function (t, k) {
         t.classList.toggle("on", k === sel && !t.classList.contains("add"));
       });
-      renderFields(); DRV.select(sel, true);   // 페이지 탭 이동 때만 그 카드로 스크롤
+      renderFields(); DRV.select(sel, false);   // 카드 탭 눌러도 스크롤 안 함(패널에서 계속 작업)
     }
     function renderFields() {
       body.innerHTML = "";
@@ -257,6 +257,28 @@
         zi.oninput = function () { card[zoomKey] = (+zi.value) / 100; paint(); redraw(); };
         zwrap.appendChild(zlab); zwrap.appendChild(zi);
 
+        // 후보 사진 (초안이 여러 장 줬을 때) — 탭해서 교체
+        var cwrap;
+        var cands = card[f.candKey || "candidates"];
+        if (Array.isArray(cands) && cands.length > 1) {
+          cwrap = el("div", "ed-cands");
+          var clab = el("div", "ed-cands-lab"); clab.textContent = "후보 사진 · 탭해서 교체 (" + cands.length + ")";
+          var crow = el("div", "ed-cands-row");
+          cands.forEach(function (src) {
+            var th = el("button", "ed-cand");
+            th.style.backgroundImage = "url('" + src + "')";
+            if (src === card[f.key]) th.classList.add("on");
+            th.onclick = function () {
+              card[f.key] = src; inp.value = String(src); card._w = card._h = null;
+              paint(); redraw(); updateQual(src);
+              Array.prototype.forEach.call(crow.children, function (b) { b.classList.remove("on"); });
+              th.classList.add("on");
+            };
+            crow.appendChild(th);
+          });
+          cwrap.appendChild(clab); cwrap.appendChild(crow);
+        }
+
         inp.oninput = function () {
           card[f.key] = inp.value === "(올린 사진)" ? card[f.key] : inp.value;
           card._w = card._h = null; paint(); redraw(); updateQual(card[f.key]);
@@ -270,6 +292,7 @@
         };
         row.appendChild(inp); row.appendChild(up);
         wrap.appendChild(row); wrap.appendChild(file); wrap.appendChild(focal); wrap.appendChild(badge); wrap.appendChild(zwrap);
+        if (cwrap) wrap.appendChild(cwrap);
 
       } else if (f.type === "rich") {
         var ed = el("div", "ed-rich"); ed.contentEditable = "true"; ed.innerHTML = String(val);

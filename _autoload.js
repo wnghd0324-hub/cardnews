@@ -10,7 +10,7 @@
 (function () {
   function loadEditor() {
     var s = document.createElement("script");
-    s.src = "./_editor.js";
+    s.src = "./_editor.js?v=8";   // 버전 올려 폰 캐시 방지
     document.body.appendChild(s);
   }
 
