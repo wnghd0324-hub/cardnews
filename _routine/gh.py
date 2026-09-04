@@ -1,6 +1,14 @@
-# GitHub 저장소 파일 업로드/삭제 (토큰은 os.environ에서만 읽음 — 파일엔 비밀 없음)
+# GitHub 저장소 파일 업로드/삭제
+# 토큰은 (1) 작업폴더의 cfg.json 또는 (2) 환경변수에서 읽는다 — 이 파일 자체엔 비밀 없음.
 import os, base64, json, urllib.request, urllib.error
-REPO = os.environ['GH_REPO']; TOK = os.environ['GH_TOKEN']
+def _cfg():
+    try:
+        with open('cfg.json', encoding='utf-8') as f: return json.load(f)
+    except Exception:
+        return {}
+_C = _cfg()
+REPO = _C.get('GH_REPO') or os.environ.get('GH_REPO')
+TOK  = _C.get('GH_TOKEN') or os.environ.get('GH_TOKEN')
 BASE = 'https://api.github.com/repos/' + REPO + '/contents/'
 HDR = {'Authorization': 'Bearer ' + TOK, 'Accept': 'application/vnd.github+json',
        'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'kitman-routine'}
