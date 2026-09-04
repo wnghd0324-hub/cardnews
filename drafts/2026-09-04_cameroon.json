@@ -7,54 +7,134 @@
   "caption": "\"옷 한 벌이 불러온 승점 6점 삭감\"\n\n2002년 아프리카 네이션스컵, 카메룬 대표팀은 그 누구도 예상 못 한 파격적인 유니폼을 입고 나타났습니다. 바로 푸마가 제작한, 소매가 아예 없는 '민소매' 유니폼이었죠. 더운 아프리카 날씨에 최적화된 이 유니폼을 입고, 카메룬은 그 대회에서 우승까지 차지했습니다.\n\n하지만 FIFA는 \"유니폼엔 반드시 소매가 있어야 한다\"는 규정을 들어, 그해 열린 한일 월드컵에서 민소매 착용을 금지했는데요. 카메룬은 포기하지 않고, 민소매 안에 검은 긴팔 티셔츠를 받쳐 입는 재치로 규정을 슬쩍 피해갔습니다.\n\n그런데 2년 뒤, 푸마는 한 술 더 떴습니다. 이번엔 상의와 하의가 하나로 붙은 '원피스' 유니폼을 들고 나온 겁니다. 그러자 FIFA는 \"이건 축구 유니폼이 아니다\"라며 착용을 금지했고, 심지어 카메룬에게 2006 월드컵 예선 승점 6점 삭감이라는 초강수를 뒀죠. 유니폼 하나로 승점을 잃는, 전례 없는 처분이었습니다.\n\n다행히 푸마와 카메룬의 강한 이의 제기로 승점 삭감은 철회됐습니다. 잃을 뻔한 6점을 가까스로 되찾은 셈이었죠.\n\n비록 규정의 벽에 막혔지만, 유니폼의 경계를 시험한 이들의 도전은 지금도 회자됩니다. 이런 파격들이 있었기에, 오늘날의 다양한 유니폼이 있는 게 아닐까요? 🤔",
   "cards": [
     {
-      "image": "./img/01.jpg",
+      "image": "./img/cam_jersey.jpg",
       "head": "옷 한 벌이 부른<br><span class=\"xl\"><span class=\"box\">승점 6점 삭감</span></span>",
-      "body": "유니폼 디자인으로 징계받은 카메룬 대표팀"
+      "body": "유니폼 디자인으로 징계받은 카메룬 대표팀",
+      "candidates": [
+        "./img/cam_jersey.jpg",
+        "./img/cam_match1.jpg",
+        "./img/cam_turkey.jpg",
+        "./img/cam_etoo.jpg",
+        "./img/cam_match2.jpg",
+        "./img/puma_onepiece.jpg"
+      ]
     },
     {
-      "image": "./img/02.jpg",
+      "image": "./img/cam_match1.jpg",
       "head": "민소매 혁신",
-      "body": "2002년 아프리카 네이션스컵, 카메룬은 파격적인 유니폼을 입고 나섰다.\n푸마가 제작한, 소매가 아예 없는 민소매 유니폼이었다."
+      "body": "2002년 아프리카 네이션스컵, 카메룬은 파격적인 유니폼을 입고 나섰다.\n푸마가 제작한, 소매가 아예 없는 민소매 유니폼이었다.",
+      "candidates": [
+        "./img/cam_match1.jpg",
+        "./img/cam_jersey.jpg",
+        "./img/cam_turkey.jpg",
+        "./img/cam_etoo.jpg",
+        "./img/cam_match2.jpg",
+        "./img/puma_onepiece.jpg"
+      ]
     },
     {
-      "image": "./img/03.jpg",
+      "image": "./img/cam_turkey.jpg",
       "head": "더위를 이기다",
-      "body": "시원하고 가벼운 민소매를 입은 카메룬은, 그 대회에서 우승까지 차지했다.\n아프리카의 더운 날씨엔, 오히려 최적화된 실용적인 선택이었다."
+      "body": "시원하고 가벼운 민소매를 입은 카메룬은, 그 대회에서 우승까지 차지했다.\n아프리카의 더운 날씨엔, 오히려 최적화된 실용적인 선택이었다.",
+      "candidates": [
+        "./img/cam_turkey.jpg",
+        "./img/cam_jersey.jpg",
+        "./img/cam_match1.jpg",
+        "./img/cam_etoo.jpg",
+        "./img/cam_match2.jpg",
+        "./img/puma_onepiece.jpg"
+      ]
     },
     {
-      "image": "./img/04.jpg",
+      "image": "./img/cam_etoo.jpg",
       "head": "규정 위반",
-      "body": "그러나 FIFA는 유니폼엔 반드시 소매가 있어야 한다는 규정을 들이밀었다.\n그렇게 그해 열린 한일 월드컵에서, 민소매 유니폼 착용이 금지됐다."
+      "body": "그러나 FIFA는 유니폼엔 반드시 소매가 있어야 한다는 규정을 들이밀었다.\n그렇게 그해 열린 한일 월드컵에서, 민소매 유니폼 착용이 금지됐다.",
+      "candidates": [
+        "./img/cam_etoo.jpg",
+        "./img/cam_jersey.jpg",
+        "./img/cam_match1.jpg",
+        "./img/cam_turkey.jpg",
+        "./img/cam_match2.jpg",
+        "./img/puma_onepiece.jpg"
+      ]
     },
     {
-      "image": "./img/05.jpg",
+      "image": "./img/cam_match2.jpg",
       "head": "꼼수 대응",
-      "body": "카메룬은 민소매 안에 검은 긴팔 티셔츠를 덧입는 방식으로 규정을 피해갔다.\n소매를 붙이라는 규정을, 안에 긴팔을 받쳐 입는 것으로 지킨 셈이었다."
+      "body": "카메룬은 민소매 안에 검은 긴팔 티셔츠를 덧입는 방식으로 규정을 피해갔다.\n소매를 붙이라는 규정을, 안에 긴팔을 받쳐 입는 것으로 지킨 셈이었다.",
+      "candidates": [
+        "./img/cam_match2.jpg",
+        "./img/cam_jersey.jpg",
+        "./img/cam_match1.jpg",
+        "./img/cam_turkey.jpg",
+        "./img/cam_etoo.jpg",
+        "./img/puma_onepiece.jpg"
+      ]
     },
     {
-      "image": "./img/06.jpg",
+      "image": "./img/puma_onepiece.jpg",
       "head": "한 벌 유니폼",
-      "body": "2년 뒤인 2004년, 푸마는 한층 더 파격적인 유니폼을 들고 나왔다.\n상의와 하의가 하나로 붙은, '원피스' 유니폼이었다."
+      "body": "2년 뒤인 2004년, 푸마는 한층 더 파격적인 유니폼을 들고 나왔다.\n상의와 하의가 하나로 붙은, '원피스' 유니폼이었다.",
+      "candidates": [
+        "./img/puma_onepiece.jpg",
+        "./img/cam_jersey.jpg",
+        "./img/cam_match1.jpg",
+        "./img/cam_turkey.jpg",
+        "./img/cam_etoo.jpg",
+        "./img/cam_match2.jpg"
+      ]
     },
     {
-      "image": "./img/07.jpg",
+      "image": "./img/cam_jersey.jpg",
       "head": "옷이 아니다",
-      "body": "FIFA는 이를 두고 “축구 유니폼이 아니다”라고 규정했다.\n상의와 하의는 분리되어야 한다는 이유로, 착용 자체를 금지한 것이다."
+      "body": "FIFA는 이를 두고 “축구 유니폼이 아니다”라고 규정했다.\n상의와 하의는 분리되어야 한다는 이유로, 착용 자체를 금지한 것이다.",
+      "candidates": [
+        "./img/cam_jersey.jpg",
+        "./img/cam_match1.jpg",
+        "./img/cam_turkey.jpg",
+        "./img/cam_etoo.jpg",
+        "./img/cam_match2.jpg",
+        "./img/puma_onepiece.jpg"
+      ]
     },
     {
-      "image": "./img/08.jpg",
+      "image": "./img/cam_etoo.jpg",
       "head": "전례 없는 징계",
-      "body": "FIFA는 규정을 어긴 카메룬에게 2006 월드컵 예선 승점 6점 삭감을 통보했다.\n유니폼 하나로 승점을 잃는, 축구 역사상 전례 없는 처분이었다."
+      "body": "FIFA는 규정을 어긴 카메룬에게 2006 월드컵 예선 승점 6점 삭감을 통보했다.\n유니폼 하나로 승점을 잃는, 축구 역사상 전례 없는 처분이었다.",
+      "candidates": [
+        "./img/cam_etoo.jpg",
+        "./img/cam_jersey.jpg",
+        "./img/cam_match1.jpg",
+        "./img/cam_turkey.jpg",
+        "./img/cam_match2.jpg",
+        "./img/puma_onepiece.jpg"
+      ]
     },
     {
-      "image": "./img/09.jpg",
+      "image": "./img/cam_match1.jpg",
       "head": "되찾은 6점",
-      "body": "푸마와 카메룬은 곧바로 이의를 제기했고, 결국 승점 삭감은 철회되었다.\n벌금은 남았지만, 잃을 뻔한 6점만큼은 되찾은 것이다."
+      "body": "푸마와 카메룬은 곧바로 이의를 제기했고, 결국 승점 삭감은 철회되었다.\n벌금은 남았지만, 잃을 뻔한 6점만큼은 되찾은 것이다.",
+      "candidates": [
+        "./img/cam_match1.jpg",
+        "./img/cam_jersey.jpg",
+        "./img/cam_turkey.jpg",
+        "./img/cam_etoo.jpg",
+        "./img/cam_match2.jpg",
+        "./img/puma_onepiece.jpg"
+      ]
     },
     {
-      "image": "./img/10.jpg",
+      "image": "./img/cam_turkey.jpg",
       "head": "그래도 도전",
-      "body": "비록 규정에 막혔지만, 이들의 시도는 유니폼의 경계를 시험한 사건으로 남았다.\n이런 파격들이 있었기에, 지금의 다양한 유니폼이 있는 것 아닐까?"
+      "body": "비록 규정에 막혔지만, 이들의 시도는 유니폼의 경계를 시험한 사건으로 남았다.\n이런 파격들이 있었기에, 지금의 다양한 유니폼이 있는 것 아닐까?",
+      "candidates": [
+        "./img/cam_turkey.jpg",
+        "./img/cam_jersey.jpg",
+        "./img/cam_match1.jpg",
+        "./img/cam_etoo.jpg",
+        "./img/cam_match2.jpg",
+        "./img/puma_onepiece.jpg"
+      ]
     }
   ]
 }
