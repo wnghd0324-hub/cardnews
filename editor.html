@@ -9,69 +9,96 @@
 *{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
 :root{ --bg:#0f1012; --card:#17181c; --line:#2a2c31; --fg:#f2f2f4; --mut:#9a9ca2; --acc:#EE7A1F; }
 body{background:var(--bg);color:var(--fg);font-family:"Pretendard",sans-serif;
-  min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 24px;}
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  padding:40px 20px 60px;}
 
-.head{text-align:center;margin-bottom:38px;}
-.head h1{font-size:30px;font-weight:800;letter-spacing:-.6px;}
-.head p{margin-top:10px;color:var(--mut);font-size:14.5px;line-height:1.6;}
+.wrap{width:100%;max-width:560px;}
+.head{text-align:center;margin-bottom:28px;}
+.head h1{font-size:28px;font-weight:800;letter-spacing:-.6px;}
+.head p{margin-top:9px;color:var(--mut);font-size:14px;line-height:1.6;}
 
-.grid{display:grid;grid-template-columns:repeat(2,minmax(220px,260px));gap:18px;width:100%;max-width:560px;}
-.tpl{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 22px;
-  text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:6px;
-  transition:transform .12s, border-color .12s, background .12s;}
+.sec-t{font-size:14px;font-weight:800;color:#cfd0d4;margin:26px 4px 12px;display:flex;align-items:center;gap:8px;}
+.sec-t .cnt{font-size:12px;font-weight:700;color:var(--mut);}
+
+/* 초안 목록 */
+.drafts{display:flex;flex-direction:column;gap:10px;}
+.draft{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 16px;
+  text-decoration:none;color:inherit;display:flex;align-items:center;gap:12px;
+  transition:transform .12s,border-color .12s,background .12s;}
+.draft:hover{transform:translateY(-2px);border-color:var(--acc);background:#1c1d22;}
+.draft .d-date{font-size:12px;font-weight:800;color:var(--acc);flex:none;width:44px;}
+.draft .d-main{flex:1;min-width:0;}
+.draft .d-title{font-size:15px;font-weight:700;letter-spacing:-.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.draft .d-tpl{font-size:11.5px;color:var(--mut);font-weight:600;margin-top:3px;text-transform:uppercase;letter-spacing:.4px;}
+.draft .d-keep{flex:none;font-size:15px;}
+.drafts .empty{color:var(--mut);font-size:13px;text-align:center;padding:22px;border:1px dashed var(--line);border-radius:14px;}
+
+/* 새로 만들기 (템플릿 메뉴) */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:14px;}
+.tpl{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 18px;
+  text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:5px;
+  transition:transform .12s,border-color .12s,background .12s;}
 .tpl:hover{transform:translateY(-3px);border-color:var(--acc);background:#1c1d22;}
-.tpl .emoji{font-size:34px;line-height:1;margin-bottom:8px;}
-.tpl .name{font-size:19px;font-weight:800;letter-spacing:-.3px;}
-.tpl .en{font-size:12px;font-weight:600;color:var(--mut);letter-spacing:.5px;text-transform:uppercase;}
-.tpl .desc{font-size:12.5px;color:var(--mut);line-height:1.5;margin-top:6px;word-break:keep-all;}
+.tpl .emoji{font-size:28px;line-height:1;margin-bottom:6px;}
+.tpl .name{font-size:16px;font-weight:800;letter-spacing:-.3px;}
+.tpl .en{font-size:11px;font-weight:600;color:var(--mut);letter-spacing:.5px;text-transform:uppercase;}
+.tpl .desc{font-size:11.5px;color:var(--mut);line-height:1.45;margin-top:5px;word-break:keep-all;}
 
-.foot{margin-top:34px;text-align:center;color:var(--mut);font-size:12.5px;line-height:1.7;max-width:520px;}
+.foot{margin-top:30px;text-align:center;color:var(--mut);font-size:12px;line-height:1.7;}
 .foot b{color:#cfd0d4;}
-.kbd{display:inline-block;background:#26282d;border:1px solid var(--line);border-radius:5px;
-  padding:1px 7px;font-size:11.5px;font-weight:700;color:#ddd;}
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<div class="head">
-  <h1>카드뉴스 편집기</h1>
-  <p>만들고 싶은 카드 종류를 고르세요. 클릭하면 편집 화면이 열립니다.</p>
+  <div class="head">
+    <h1>카드뉴스 편집기</h1>
+    <p>자동으로 만들어진 초안을 골라 다듬거나, 새로 만드세요.</p>
+  </div>
+
+  <!-- 초안 목록 -->
+  <div class="sec-t">📥 초안 <span class="cnt" id="draft-cnt"></span></div>
+  <div class="drafts" id="drafts"><div class="empty">불러오는 중…</div></div>
+
+  <!-- 새로 만들기 -->
+  <div class="sec-t">➕ 새로 만들기</div>
+  <div class="grid">
+    <a class="tpl" href="news.html"><div class="emoji">📰</div><div class="name">속보 / 유출</div><div class="en">news</div><div class="desc">장비 유출·발매 소식.</div></a>
+    <a class="tpl" href="story.html"><div class="emoji">📖</div><div class="name">스토리 / 정보</div><div class="en">story</div><div class="desc">이야기·사건 풀어내기.</div></a>
+    <a class="tpl" href="list.html"><div class="emoji">🔢</div><div class="name">큐레이션 리스트</div><div class="en">list</div><div class="desc">"OO N가지" 추천.</div></a>
+    <a class="tpl" href="magazine.html"><div class="emoji">📕</div><div class="name">인터뷰 매거진</div><div class="en">magazine</div><div class="desc">인터뷰·기획.</div></a>
+  </div>
+
+  <div class="foot"><b>초안은 자동으로 채워져 열립니다.</b> 보관(킵)·정리는 텔레그램/자동으로 관리돼요.</div>
 </div>
 
-<div class="grid">
-  <a class="tpl" href="news.html">
-    <div class="emoji">📰</div>
-    <div class="name">속보 / 유출</div>
-    <div class="en">news</div>
-    <div class="desc">빨강 헤드라인. 새 장비 유출·발매 소식 전할 때.</div>
-  </a>
-
-  <a class="tpl" href="story.html">
-    <div class="emoji">📖</div>
-    <div class="name">스토리 / 정보</div>
-    <div class="en">story</div>
-    <div class="desc">사진 위 굵은 헤드라인 + 본문. 이야기·정보 풀어낼 때.</div>
-  </a>
-
-  <a class="tpl" href="list.html">
-    <div class="emoji">🔢</div>
-    <div class="name">큐레이션 리스트</div>
-    <div class="en">list</div>
-    <div class="desc">거대 번호. "입문 장비 N가지" 같은 추천 리스트.</div>
-  </a>
-
-  <a class="tpl" href="magazine.html">
-    <div class="emoji">📕</div>
-    <div class="name">인터뷰 매거진</div>
-    <div class="en">magazine</div>
-    <div class="desc">잡지 표지 → 풀쿼트 → 질문답변. 인터뷰·기획 콘텐츠.</div>
-  </a>
-</div>
-
-<div class="foot">
-  편집 화면에서 다시 이 메뉴로 오려면 브라우저 <span class="kbd">← 뒤로가기</span> 를 누르세요.<br>
-  <b>서버 없이 이 파일을 더블클릭해서 바로 쓸 수 있어요.</b>
-</div>
-
+<script>
+/* 초안 목록 불러오기 (drafts/index.json) */
+(function () {
+  var box = document.getElementById("drafts");
+  var cnt = document.getElementById("draft-cnt");
+  fetch("./drafts/index.json", { cache: "no-store" })
+    .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+    .then(function (d) {
+      var list = (d && d.drafts || []).slice().sort(function (a, b) { return (b.date || "").localeCompare(a.date || ""); });
+      if (!list.length) { box.innerHTML = '<div class="empty">아직 초안이 없어요. 새로 만들어보세요 👇</div>'; return; }
+      cnt.textContent = list.length + "개";
+      box.innerHTML = "";
+      list.forEach(function (it) {
+        var a = document.createElement("a");
+        a.className = "draft";
+        a.href = (it.template || "story") + ".html?draft=" + encodeURIComponent(it.id);
+        var md = (it.date || "").slice(5).replace("-", ".");
+        a.innerHTML =
+          '<span class="d-date">' + md + '</span>' +
+          '<span class="d-main"><span class="d-title">' + (it.title || it.id) + '</span>' +
+          '<span class="d-tpl">' + (it.template || "") + '</span></span>' +
+          (it.keep ? '<span class="d-keep">⭐</span>' : "");
+        box.appendChild(a);
+      });
+    })
+    .catch(function () { box.innerHTML = '<div class="empty">초안 목록을 못 불러왔어요. 새로 만들어보세요 👇</div>'; });
+})();
+</script>
 </body>
 </html>
