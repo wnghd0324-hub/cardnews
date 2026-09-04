@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>카드뉴스 · 스토리/정보형</title>
 
-<link rel="stylesheet" href="./_brand.css?v=2" />
-<link rel="stylesheet" href="./_editor.css?v=2" />
+<link rel="stylesheet" href="./_brand.css?v=3" />
+<link rel="stylesheet" href="./_editor.css?v=3" />
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 </head>
 <body>
@@ -79,15 +79,15 @@ window.EDITOR_SCHEMA = {
   note:"사진·헤드라인·본문만 바꾸면 돼요. 밝은 사진이면 테마를 '어두운 글씨'로.",
   fields:[
     {key:"image", label:"사진", type:"image"},
-    {key:"head",  label:"헤드라인", type:"rich", emph:true, emphClass:"box", emphLabel:"강조 박스", hint:"줄바꿈=Enter · 강조할 글자 선택 후 [강조 박스]"},
+    {key:"head",  label:"헤드라인", type:"rich", emph:true, emphClass:"box", emphLabel:"강조 박스", hint:"줄바꿈=Enter · 강조할 글자 선택 후 [강조 박스] (다시 누르면 해제)"},
     {key:"body",  label:"본문 (2줄 권장)", type:"textarea"},
     {key:"theme", label:"글씨 테마", type:"select", options:[{value:"light",label:"밝은 글씨 (기본, 어두운 사진용)"},{value:"dark",label:"어두운 글씨 (밝은 사진용)"}]},
     {key:"handle",label:"계정 핸들 (선택)", type:"text"},
   ]
 };
 </script>
-<script src="./_photo.js?v=2"></script>
-<script src="./_engine.js?v=2"></script>
-<script src="./_editor.js?v=2"></script>
+<script src="./_photo.js?v=3"></script>
+<script src="./_engine.js?v=3"></script>
+<script src="./_editor.js?v=3"></script>
 </body>
 </html>

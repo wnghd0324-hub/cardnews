@@ -30,12 +30,26 @@
       .replace(/ style="[^"]*"/gi, "")
       .replace(/^(<br>)+/i, "").trim();
   }
-  function wrapSel(host, cls, toast) {
+  function emphAncestor(node, host, cls) {   // 선택 위치가 이미 강조 안(span.cls)인지 찾기
+    while (node && node !== host) {
+      if (node.nodeType === 1 && node.classList && node.classList.contains(cls)) return node;
+      node = node.parentNode;
+    }
+    return null;
+  }
+  function toggleSel(host, cls, toast) {   // 강조 토글: 걸렸으면 해제, 아니면 걸기
     var s = window.getSelection();
     if (!s || s.rangeCount === 0 || s.isCollapsed) { toast("먼저 강조할 글자를 드래그해서 선택하세요"); return; }
     var r = s.getRangeAt(0);
     if (!host.contains(r.commonAncestorContainer)) return;
-    var span = document.createElement("span"); span.className = cls || "red";
+    var hit = emphAncestor(r.commonAncestorContainer, host, cls) || emphAncestor(r.startContainer, host, cls) || emphAncestor(r.endContainer, host, cls);
+    if (hit) {                                  // 이미 강조됨 → 해제(span 벗기고 글자만 남김)
+      var p = hit.parentNode;
+      while (hit.firstChild) p.insertBefore(hit.firstChild, hit);
+      p.removeChild(hit); if (p.normalize) p.normalize();
+      s.removeAllRanges(); return;
+    }
+    var span = document.createElement("span"); span.className = cls || "red";   // 아니면 강조 걸기
     try { r.surroundContents(span); } catch (e) { span.appendChild(r.extractContents()); r.insertNode(span); }
     s.removeAllRanges();
   }
@@ -241,7 +255,7 @@
         if (f.emph) {
           var cls = f.emphClass || "red";
           var eb = el("button", "ed-btn mini ed-emph-btn"); eb.textContent = f.emphLabel || "선택 글자 강조";
-          eb.onclick = function () { wrapSel(ed, cls, toast); card[f.key] = cleanRich(ed.innerHTML); redraw(); };
+          eb.onclick = function () { toggleSel(ed, cls, toast); card[f.key] = cleanRich(ed.innerHTML); redraw(); };
           wrap.appendChild(eb);
         }
 

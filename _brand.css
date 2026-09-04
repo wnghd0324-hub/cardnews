@@ -95,8 +95,8 @@ body {
 /* 검정 하이라이트 박스: <span class="box">8,000만 원 벌금</span> */
 .box {
   background:var(--box-bg); color:var(--box-fg);
-  padding:.02em .14em; border-radius:3px; line-height:1.0;   /* 글자에 딱 맞게 (여백 최소)  */
-  margin-left:-.14em;   /* 줄 첫머리 박스가 들여쓰기처럼 안 밀리게 (좌측 padding 상쇄) */
+  padding:0 .06em; border-radius:2px; line-height:1.0;   /* 글자에 거의 딱 붙게 (여백 최소) */
+  margin-left:-.06em;   /* 줄 첫머리 박스가 들여쓰기처럼 안 밀리게 (좌측 padding 상쇄) */
   box-decoration-break:clone; -webkit-box-decoration-break:clone;
 }
 /* 더 크게: <span class="xl">8,000만 원</span> */
