@@ -98,7 +98,7 @@ body {
   padding:0 .06em; margin-left:-.06em;
   /* 배경을 글자 높이에 딱 맞춰 그림 (상하 여백 제거). 높이·위치는 .9em/.12em로 미세조정 */
   background:linear-gradient(var(--box-bg),var(--box-bg)) no-repeat;
-  background-size:100% .98em; background-position:0 .16em;
+  background-size:100% 1.01em; background-position:0 .13em;
   box-decoration-break:clone; -webkit-box-decoration-break:clone;
 }
 /* 더 크게: <span class="xl">8,000만 원</span> */
