@@ -100,6 +100,15 @@ textarea.ed-in{ min-height:64px; }
   transition:.2s; pointer-events:none; }
 .ed-toast.show{ opacity:1; transform:translateY(0); }
 
+/* 초안 캡션 상자 (인스타 복붙용) */
+.ed-draft-caption{ margin-left:var(--ed-w); background:#17181c; border-bottom:1px solid var(--ed-line);
+  color:#ddd; padding:14px 20px 16px; position:relative;
+  font-family:"Pretendard","Pretendard Variable",-apple-system,sans-serif; }
+.ed-draft-caption .cap-h{ font-weight:800; color:#fff; font-size:13.5px; }
+.ed-draft-caption .cap-body{ white-space:pre-wrap; margin-top:8px; color:#cfcfcf; font-size:13px;
+  line-height:1.7; max-height:110px; overflow:auto; }
+.ed-draft-caption .ed-btn{ position:absolute; top:11px; right:16px; }
+
 /* 사진 드래그 중 터치 스크롤 방지 */
 .ed-focal{ touch-action:none; }
 
@@ -120,4 +129,5 @@ textarea.ed-in{ min-height:64px; }
   body.ed-on .card{ transform:scale(0.3148) !important; }   /* 340 / 1080 */
   /* 토스트 폰 위치 */
   .ed-toast{ left:16px !important; right:16px !important; bottom:16px !important; text-align:center; }
+  .ed-draft-caption{ margin-left:0 !important; order:-1; }   /* 폰: 캡션 맨 위 */
 }
