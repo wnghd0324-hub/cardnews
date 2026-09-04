@@ -63,6 +63,21 @@
   }
   function isFramed() { try { return window.parent && window.parent !== window; } catch (e) { return true; } }
 
+  // 저장: 폰(공유 지원)이면 공유 시트(→사진첩 저장·인스타 공유), PC면 다운로드
+  window.edShareOrDownload = async function (canvas, filename) {
+    var blob = await new Promise(function (res) { try { canvas.toBlob(res, "image/png"); } catch (e) { res(null); } });
+    if (blob && navigator.canShare) {
+      try {
+        var file = new File([blob], filename, { type: "image/png" });
+        if (navigator.canShare({ files: [file] })) { await navigator.share({ files: [file] }); return; }
+      } catch (e) { if (e && e.name === "AbortError") return; }   // 사용자가 취소하면 다운로드 안 함
+    }
+    var a = document.createElement("a"); a.download = filename;
+    a.href = blob ? URL.createObjectURL(blob) : canvas.toDataURL("image/png");
+    a.click();
+    if (blob) setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+  };
+
   // ================= 패널 UI (DRV = 데이터/미리보기 연결부) =================
   // DRV: schema(), cards(), render(), save(i), saveAll(), select(i), selectorEl?
   function buildEditor(DRV) {
@@ -183,18 +198,19 @@
         }
         paint();
 
-        focal.addEventListener("mousedown", function (e) {
+        focal.addEventListener("pointerdown", function (e) {   // 마우스+터치 통합
           if (!card[f.key]) return;
           var p = parsePos(card[posKey] || "50% 50%");
           var start = { x: e.clientX, y: e.clientY, px: p.x, py: p.y }; e.preventDefault();
+          try { focal.setPointerCapture(e.pointerId); } catch (_) {}
           function mv(ev) {
             var w = focal.clientWidth || 240, h = focal.clientHeight || 150;
             card[posKey] = Math.round(clamp(start.px - (ev.clientX - start.x) / w * 100)) + "% " +
                            Math.round(clamp(start.py - (ev.clientY - start.y) / h * 100)) + "%";
             paint(); redraw();
           }
-          function upp() { document.removeEventListener("mousemove", mv); document.removeEventListener("mouseup", upp); }
-          document.addEventListener("mousemove", mv); document.addEventListener("mouseup", upp);
+          function upp() { focal.removeEventListener("pointermove", mv); focal.removeEventListener("pointerup", upp); focal.removeEventListener("pointercancel", upp); }
+          focal.addEventListener("pointermove", mv); focal.addEventListener("pointerup", upp); focal.addEventListener("pointercancel", upp);
         });
 
         var zwrap = el("div", "ed-zoom");

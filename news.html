@@ -140,7 +140,7 @@ async function bestScale(c){
 async function saveCard(i){const el=document.getElementById("card"+i);
   const scale=await bestScale(CARDS[i]);
   const cv=await html2canvas(el,{width:1080,height:1350,scale,backgroundColor:null,useCORS:true,onclone:d=>{d.getElementById("card"+i).style.transform="none";}});
-  const a=document.createElement("a");a.download=`cardnews_${String(i+1).padStart(2,"0")}.png`;a.href=cv.toDataURL("image/png");a.click();}
+  await window.edShareOrDownload(cv, `cardnews_${String(i+1).padStart(2,"0")}.png`);}
 async function saveAll(){for(let i=0;i<CARDS.length;i++){await saveCard(i);await new Promise(r=>setTimeout(r,400));}}
 
 /* ── 편집기 연결: 어떤 칸을 보여줄지 설명 (디자인엔 영향 없음) ── */

@@ -53,8 +53,8 @@
       width: CW, height: CH, scale: scale, backgroundColor: null, useCORS: true,
       onclone: function (d) { d.getElementById("card" + i).style.transform = "none"; },
     });
-    var a = document.createElement("a");
-    a.download = "cardnews_" + String(i + 1).padStart(2, "0") + ".png";
-    a.href = cv.toDataURL("image/png"); a.click();
+    var name = "cardnews_" + String(i + 1).padStart(2, "0") + ".png";
+    if (window.edShareOrDownload) { await window.edShareOrDownload(cv, name); }
+    else { var a = document.createElement("a"); a.download = name; a.href = cv.toDataURL("image/png"); a.click(); }
   };
 })();

@@ -99,3 +99,25 @@ textarea.ed-in{ min-height:64px; }
   font-family:"Pretendard",sans-serif; font-size:13px; opacity:0; transform:translateY(8px);
   transition:.2s; pointer-events:none; }
 .ed-toast.show{ opacity:1; transform:translateY(0); }
+
+/* 사진 드래그 중 터치 스크롤 방지 */
+.ed-focal{ touch-action:none; }
+
+/* ===================== 폰 (모바일 반응형) ===================== */
+@media (max-width: 820px){
+  /* 세로로 쌓기: 편집 패널이 위, 카드 미리보기가 아래 */
+  body.ed-on{ display:flex !important; flex-direction:column; padding:0 !important; }
+  .ed-panel{
+    order:0;
+    position:static !important; width:100% !important; height:auto !important;
+    border-right:none !important; border-bottom:2px solid var(--ed-acc) !important;
+  }
+  .ed-panel .ed-body{ overflow:visible !important; }
+  .ed-tabs{ position:sticky; top:0; background:var(--ed-bg); z-index:3; }
+  /* 카드 미리보기: 폰 폭에 맞게 축소 (1080×1350 → 340px 폭) */
+  body.ed-on #deck{ order:1; margin-left:0 !important; padding:18px 0 30px !important; gap:22px !important; }
+  body.ed-on .stage{ width:340px !important; height:425px !important; }
+  body.ed-on .card{ transform:scale(0.3148) !important; }   /* 340 / 1080 */
+  /* 토스트 폰 위치 */
+  .ed-toast{ left:16px !important; right:16px !important; bottom:16px !important; text-align:center; }
+}
