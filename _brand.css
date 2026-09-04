@@ -94,9 +94,11 @@ body {
 /* ---- 강조 도구 (헤드/본문 안에서 사용) ---- */
 /* 검정 하이라이트 박스: <span class="box">8,000만 원 벌금</span> */
 .box {
-  background:var(--box-bg); color:var(--box-fg);
-  padding:0 .06em; border-radius:2px; line-height:1.0;   /* 글자에 거의 딱 붙게 (여백 최소) */
-  margin-left:-.06em;   /* 줄 첫머리 박스가 들여쓰기처럼 안 밀리게 (좌측 padding 상쇄) */
+  color:var(--box-fg);
+  padding:0 .06em; margin-left:-.06em;
+  /* 배경을 글자 높이에 딱 맞춰 그림 (상하 여백 제거). 높이·위치는 .9em/.12em로 미세조정 */
+  background:linear-gradient(var(--box-bg),var(--box-bg)) no-repeat;
+  background-size:100% .9em; background-position:0 .12em;
   box-decoration-break:clone; -webkit-box-decoration-break:clone;
 }
 /* 더 크게: <span class="xl">8,000만 원</span> */

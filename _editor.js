@@ -123,7 +123,7 @@
 
     buildTabs(); select(0);
 
-    function redraw() { DRV.render(); DRV.select(sel); }
+    function redraw() { DRV.render(); DRV.select(sel, false); }   // 타이핑 중엔 스크롤 안 함
 
     function buildTabs() {
       tabs.innerHTML = "";
@@ -151,7 +151,7 @@
       Array.prototype.forEach.call(tabs.querySelectorAll(".ed-tab"), function (t, k) {
         t.classList.toggle("on", k === sel && !t.classList.contains("add"));
       });
-      renderFields(); DRV.select(sel);
+      renderFields(); DRV.select(sel, true);   // 페이지 탭 이동 때만 그 카드로 스크롤
     }
     function renderFields() {
       body.innerHTML = "";
@@ -366,10 +366,10 @@
         render: function () { window.renderDeck(); },
         save: function (i) { window.saveCard && window.saveCard(i); },
         saveAll: function () { window.saveAll && window.saveAll(); },
-        select: function (i) {
+        select: function (i, scroll) {
           var st = document.querySelectorAll("#deck .stage");
           st.forEach(function (s, k) { s.classList.toggle("ed-sel", k === i); });
-          if (st[i]) st[i].scrollIntoView({ block: "center", behavior: "smooth" });
+          if (scroll && st[i]) st[i].scrollIntoView({ block: "center", behavior: "smooth" });
         },
       });
     }
