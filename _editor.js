@@ -37,18 +37,41 @@
     }
     return null;
   }
-  function toggleSel(host, cls, toast) {   // 강조 토글: 걸렸으면 해제, 아니면 걸기
+  function unwrapRange(host, cls, r) {   // 선택 부분만 강조 해제 (앞/뒤는 박스 유지)
+    var hit = emphAncestor(r.commonAncestorContainer, host, cls) || emphAncestor(r.startContainer, host, cls) || emphAncestor(r.endContainer, host, cls);
+    if (!hit) return false;
+    var parent = hit.parentNode;
+    var fullR = document.createRange(); fullR.selectNodeContents(hit);
+    // 선택을 박스 범위 안으로 clamp
+    var mid = document.createRange();
+    if (r.compareBoundaryPoints(Range.START_TO_START, fullR) < 0) mid.setStart(fullR.startContainer, fullR.startOffset);
+    else mid.setStart(r.startContainer, r.startOffset);
+    if (r.compareBoundaryPoints(Range.END_TO_END, fullR) > 0) mid.setEnd(fullR.endContainer, fullR.endOffset);
+    else mid.setEnd(r.endContainer, r.endOffset);
+    // 박스 전체를 덮으면 통째로 해제
+    if (mid.compareBoundaryPoints(Range.START_TO_START, fullR) <= 0 && mid.compareBoundaryPoints(Range.END_TO_END, fullR) >= 0) {
+      while (hit.firstChild) parent.insertBefore(hit.firstChild, hit);
+      parent.removeChild(hit); if (parent.normalize) parent.normalize();
+      return true;
+    }
+    // [앞]box + [선택]plain + [뒤]box 로 재구성
+    var beforeR = document.createRange(); beforeR.setStart(fullR.startContainer, fullR.startOffset); beforeR.setEnd(mid.startContainer, mid.startOffset);
+    var afterR = document.createRange(); afterR.setStart(mid.endContainer, mid.endOffset); afterR.setEnd(fullR.endContainer, fullR.endOffset);
+    var frag = document.createDocumentFragment();
+    var bf = beforeR.cloneContents();
+    if (bf.textContent && bf.textContent.length) { var b = document.createElement("span"); b.className = cls; b.appendChild(bf); frag.appendChild(b); }
+    frag.appendChild(mid.cloneContents());   // 선택 부분 = 강조 없음
+    var af = afterR.cloneContents();
+    if (af.textContent && af.textContent.length) { var a = document.createElement("span"); a.className = cls; a.appendChild(af); frag.appendChild(a); }
+    parent.replaceChild(frag, hit);
+    return true;
+  }
+  function toggleSel(host, cls, toast) {   // 강조 토글: 걸렸으면(부분/전체) 해제, 아니면 걸기
     var s = window.getSelection();
     if (!s || s.rangeCount === 0 || s.isCollapsed) { toast("먼저 강조할 글자를 드래그해서 선택하세요"); return; }
     var r = s.getRangeAt(0);
     if (!host.contains(r.commonAncestorContainer)) return;
-    var hit = emphAncestor(r.commonAncestorContainer, host, cls) || emphAncestor(r.startContainer, host, cls) || emphAncestor(r.endContainer, host, cls);
-    if (hit) {                                  // 이미 강조됨 → 해제(span 벗기고 글자만 남김)
-      var p = hit.parentNode;
-      while (hit.firstChild) p.insertBefore(hit.firstChild, hit);
-      p.removeChild(hit); if (p.normalize) p.normalize();
-      s.removeAllRanges(); return;
-    }
+    if (unwrapRange(host, cls, r)) { s.removeAllRanges(); return; }
     var span = document.createElement("span"); span.className = cls || "red";   // 아니면 강조 걸기
     try { r.surroundContents(span); } catch (e) { span.appendChild(r.extractContents()); r.insertNode(span); }
     s.removeAllRanges();
