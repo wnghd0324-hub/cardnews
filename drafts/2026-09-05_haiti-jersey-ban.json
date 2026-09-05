@@ -1,0 +1,114 @@
+{
+  "id": "2026-09-05_haiti-jersey-ban",
+  "template": "story",
+  "date": "2026-09-05",
+  "title": "하이티 월드컵 유니폼 금지",
+  "keep": false,
+  "caption": "\"52년 만의 월드컵, 그런데 입지 못한 유니폼\"\n\n2026년, 하이티가 무려 52년 만에 월드컵 본선 무대에 올랐습니다. 그런데 이 역사적인 순간에 정작 화제가 된 건 경기 결과가 아니라 '유니폼 한 장'이었는데요.\n\n하이티가 본선行을 확정지은 날은 2025년 11월 18일. 하필 이 날은 1803년 '베르티에르 전투'가 벌어진 날과 같습니다. 나폴레옹이 이끄는 프랑스군을 무찌르고, 이듬해 하이티가 세계 최초의 흑인 독립 공화국으로 탄생하는 길을 연 결정적인 전투였죠.\n\n하이티 축구협회와 스포츠 브랜드 'Saeta'는 이 자부심을 유니폼에 새겼습니다. 흰색 유니폼 오른쪽 허리춤에, 베르티에르 전투 장면과 하이티 국기를 그려 넣은 겁니다.\n\n하지만 FIFA는 대회 최종 장비 점검에서 제동을 걸었습니다. '유니폼에 정치적·종교적·개인적 메시지나 이미지를 넣을 수 없다'는 규정을 근거로, 전투 그림이 정치적 메시지로 비칠 수 있다고 본 것이죠. 결국 하이티는 그림을 뺀 파란색 유니폼으로 바꿔 입어야 했습니다.\n\n원래의 흰색 유니폼은 워밍업 경기에서만 잠깐 모습을 비쳤고, 6월 13일 하이티 국립박물관으로 옮겨졌습니다. 공교롭게도 52년 만의 월드컵 첫 경기를 불과 몇 시간 앞둔 때였죠.\n\n팬들은 이 유니폼을 정치가 아니라 '나라의 자부심'으로 여겼습니다. 규정과 자부심 사이, 여러분은 어느 쪽 손을 들어주고 싶으신가요? 🇭🇹",
+  "cards": [
+    {
+      "image": "./img/haiti_scene.jpg",
+      "head": "52년 만의 월드컵,<br><span class=\"xl\"><span class=\"box\">유니폼은 금지됐다</span></span>",
+      "body": "역사를 새겼다는 이유로 교체당한 하이티 대표팀 유니폼",
+      "candidates": [
+        "./img/haiti_scene.jpg",
+        "./img/haiti_revolution.jpg",
+        "./img/haiti_team1.jpg",
+        "./img/haiti_team2.jpg",
+        "./img/haiti_team3.jpg",
+        "./img/haiti_team4.jpg"
+      ]
+    },
+    {
+      "image": "./img/haiti_team1.jpg",
+      "head": "52년 만의 무대",
+      "body": "하이티가 1974년 이후 52년 만에 월드컵 본선에 올랐다.\n오랜 기다림 끝에 찾아온, 나라 전체의 경사였다.",
+      "candidates": [
+        "./img/haiti_team1.jpg",
+        "./img/haiti_scene.jpg",
+        "./img/haiti_revolution.jpg",
+        "./img/haiti_team2.jpg",
+        "./img/haiti_team3.jpg",
+        "./img/haiti_team4.jpg"
+      ]
+    },
+    {
+      "image": "./img/haiti_revolution.jpg",
+      "head": "베르티에르 전투",
+      "body": "본선行을 확정한 날은 1803년 '베르티에르 전투'가 벌어진 11월 18일과 같았다.\n나폴레옹의 프랑스군을 무찌르고, 이듬해 세계 최초의 흑인 독립 공화국이 탄생한 전투다.",
+      "candidates": [
+        "./img/haiti_revolution.jpg",
+        "./img/haiti_scene.jpg",
+        "./img/haiti_team1.jpg",
+        "./img/haiti_team2.jpg",
+        "./img/haiti_team3.jpg",
+        "./img/haiti_team4.jpg"
+      ]
+    },
+    {
+      "image": "./img/haiti_team2.jpg",
+      "head": "유니폼에 새기다",
+      "body": "하이티는 이 역사를 유니폼에 담았다.\n흰색 유니폼 오른쪽 허리춤에, 전투 장면과 국기를 그려 넣었다.",
+      "candidates": [
+        "./img/haiti_team2.jpg",
+        "./img/haiti_scene.jpg",
+        "./img/haiti_revolution.jpg",
+        "./img/haiti_team1.jpg",
+        "./img/haiti_team3.jpg",
+        "./img/haiti_team4.jpg"
+      ]
+    },
+    {
+      "image": "./img/haiti_team3.jpg",
+      "head": "FIFA의 제동",
+      "body": "그러나 FIFA는 대회 최종 장비 점검에서 제동을 걸었다.\n정치·종교·개인적 메시지나 그림은 넣을 수 없다는 규정 때문이었다.",
+      "candidates": [
+        "./img/haiti_team3.jpg",
+        "./img/haiti_scene.jpg",
+        "./img/haiti_revolution.jpg",
+        "./img/haiti_team1.jpg",
+        "./img/haiti_team2.jpg",
+        "./img/haiti_team4.jpg"
+      ]
+    },
+    {
+      "image": "./img/haiti_team4.jpg",
+      "head": "결국 교체",
+      "body": "하이티는 그림을 뺀 파란색 유니폼으로 바꿔 입어야 했다.\n원래의 흰색 유니폼은 워밍업 경기에서만 잠깐 모습을 비쳤다.",
+      "candidates": [
+        "./img/haiti_team4.jpg",
+        "./img/haiti_scene.jpg",
+        "./img/haiti_revolution.jpg",
+        "./img/haiti_team1.jpg",
+        "./img/haiti_team2.jpg",
+        "./img/haiti_team3.jpg"
+      ]
+    },
+    {
+      "image": "./img/haiti_team1.jpg",
+      "head": "박물관으로",
+      "body": "금지된 흰색 유니폼은 6월 13일, 하이티 국립박물관으로 옮겨졌다.\n52년 만의 월드컵 첫 경기를 불과 몇 시간 앞둔 때였다.",
+      "candidates": [
+        "./img/haiti_team1.jpg",
+        "./img/haiti_scene.jpg",
+        "./img/haiti_revolution.jpg",
+        "./img/haiti_team2.jpg",
+        "./img/haiti_team3.jpg",
+        "./img/haiti_team4.jpg"
+      ]
+    },
+    {
+      "image": "./img/haiti_revolution.jpg",
+      "head": "남은 질문",
+      "body": "팬들은 이를 정치가 아니라 '나라의 자부심'으로 여겼다.\n유니폼은 경기장이 아닌 박물관에서, 그 이야기를 잇고 있다.",
+      "candidates": [
+        "./img/haiti_revolution.jpg",
+        "./img/haiti_scene.jpg",
+        "./img/haiti_team1.jpg",
+        "./img/haiti_team2.jpg",
+        "./img/haiti_team3.jpg",
+        "./img/haiti_team4.jpg"
+      ]
+    }
+  ]
+}

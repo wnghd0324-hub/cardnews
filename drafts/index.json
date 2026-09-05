@@ -1,5 +1,18 @@
 {
   "drafts": [
-    { "id": "2026-09-04_cameroon", "template": "story", "date": "2026-09-04", "title": "카메룬 민소매 승점삭감", "keep": false }
+    {
+      "id": "2026-09-05_haiti-jersey-ban",
+      "template": "story",
+      "date": "2026-09-05",
+      "title": "하이티 월드컵 유니폼 금지",
+      "keep": false
+    },
+    {
+      "id": "2026-09-04_cameroon",
+      "template": "story",
+      "date": "2026-09-04",
+      "title": "카메룬 민소매 승점삭감",
+      "keep": false
+    }
   ]
 }
