@@ -14,7 +14,7 @@
         "./img/haiti_museum.jpg",
         "./img/haiti_qual.jpg",
         "./img/haiti_revolution.jpg",
-        "./img/haiti_jersey_art.jpg",
+        "./img/haiti_white_jersey.jpg",
         "./img/haiti_blue_emotion.jpg",
         "./img/haiti_blue_match.jpg",
         "./img/haiti_fans.jpg",
@@ -29,7 +29,7 @@
         "./img/haiti_qual.jpg",
         "./img/haiti_museum.jpg",
         "./img/haiti_revolution.jpg",
-        "./img/haiti_jersey_art.jpg",
+        "./img/haiti_white_jersey.jpg",
         "./img/haiti_blue_emotion.jpg",
         "./img/haiti_blue_match.jpg",
         "./img/haiti_fans.jpg",
@@ -44,7 +44,7 @@
         "./img/haiti_revolution.jpg",
         "./img/haiti_museum.jpg",
         "./img/haiti_qual.jpg",
-        "./img/haiti_jersey_art.jpg",
+        "./img/haiti_white_jersey.jpg",
         "./img/haiti_blue_emotion.jpg",
         "./img/haiti_blue_match.jpg",
         "./img/haiti_fans.jpg",
@@ -52,11 +52,11 @@
       ]
     },
     {
-      "image": "./img/haiti_jersey_art.jpg",
+      "image": "./img/haiti_white_jersey.jpg",
       "head": "유니폼에 새기다",
       "body": "하이티는 이 역사를 유니폼에 담았다.\n흰색 유니폼 오른쪽 허리춤에, 전투 장면과 국기를 그려 넣었다.",
       "candidates": [
-        "./img/haiti_jersey_art.jpg",
+        "./img/haiti_white_jersey.jpg",
         "./img/haiti_museum.jpg",
         "./img/haiti_qual.jpg",
         "./img/haiti_revolution.jpg",
@@ -65,7 +65,7 @@
         "./img/haiti_fans.jpg",
         "./img/haiti_celebrate.jpg"
       ],
-      "pos": "14% 52%"
+      "pos": "50% 55%"
     },
     {
       "image": "./img/haiti_blue_emotion.jpg",
@@ -76,7 +76,7 @@
         "./img/haiti_museum.jpg",
         "./img/haiti_qual.jpg",
         "./img/haiti_revolution.jpg",
-        "./img/haiti_jersey_art.jpg",
+        "./img/haiti_white_jersey.jpg",
         "./img/haiti_blue_match.jpg",
         "./img/haiti_fans.jpg",
         "./img/haiti_celebrate.jpg"
@@ -91,7 +91,7 @@
         "./img/haiti_museum.jpg",
         "./img/haiti_qual.jpg",
         "./img/haiti_revolution.jpg",
-        "./img/haiti_jersey_art.jpg",
+        "./img/haiti_white_jersey.jpg",
         "./img/haiti_blue_emotion.jpg",
         "./img/haiti_fans.jpg",
         "./img/haiti_celebrate.jpg"
@@ -105,7 +105,7 @@
         "./img/haiti_museum.jpg",
         "./img/haiti_qual.jpg",
         "./img/haiti_revolution.jpg",
-        "./img/haiti_jersey_art.jpg",
+        "./img/haiti_white_jersey.jpg",
         "./img/haiti_blue_emotion.jpg",
         "./img/haiti_blue_match.jpg",
         "./img/haiti_fans.jpg",
@@ -121,7 +121,7 @@
         "./img/haiti_museum.jpg",
         "./img/haiti_qual.jpg",
         "./img/haiti_revolution.jpg",
-        "./img/haiti_jersey_art.jpg",
+        "./img/haiti_white_jersey.jpg",
         "./img/haiti_blue_emotion.jpg",
         "./img/haiti_blue_match.jpg",
         "./img/haiti_celebrate.jpg"
