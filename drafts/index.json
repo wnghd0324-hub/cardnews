@@ -1,17 +1,17 @@
 {
   "drafts": [
     {
+      "id": "2026-09-09_f50-messi-tango",
+      "template": "news",
+      "date": "2026-09-09",
+      "title": "adidas F50 메시 '엘 울티모 탱고'",
+      "keep": false
+    },
+    {
       "id": "2026-09-09_worldcup-balls",
       "template": "list",
       "date": "2026-09-09",
       "title": "월드컵 공인구의 진화",
-      "keep": false
-    },
-    {
-      "id": "2026-09-09_adidas-fall-pack",
-      "template": "news",
-      "date": "2026-09-09",
-      "title": "아디다스 프레데터 엘리트 공개",
       "keep": false
     },
     {

@@ -1,0 +1,100 @@
+{
+  "id": "2026-09-09_f50-messi-tango",
+  "template": "news",
+  "date": "2026-09-09",
+  "title": "adidas F50 메시 '엘 울티모 탱고'",
+  "keep": false,
+  "caption": "adidas가 리오넬 메시의 2026 월드컵 시그니처 부츠 F50 '엘 울티모 탱고(El Último Tango)'를 공개했다.\n\n깨끗한 흰색 바탕에 하늘색 패치와 곡선 라인을 더한 색으로, 아르헨티나 대표팀에서 영감을 받았다. 메시의 첫 월드컵이었던 2006년의 감성과 2026년의 최신 기술을 결합한, 이른바 'F50.6 Future' 콘셉트다.\n\n무지갯빛 스피드시스템(Speedsystem) 솔플레이트와 금색 메시 로고 등 시그니처 디테일이 곳곳에 들어갔다.\n\n런칭 화보에서 메시는 거대한 스크린 앞에 선다. 화면에는 2006년 첫 월드컵부터 2022년 우승까지의 순간이 흐른다. 그의 마지막이 될 월드컵을 향한 헌사다.\n\n— 출처: SoccerBible, adidas",
+  "cards": [
+    {
+      "image": "./img/mf_cover.jpg",
+      "cat": "FOOTBALL",
+      "tag": "출시",
+      "head": "메시의 <span class=\"red\">마지막 월드컵</span> 부츠",
+      "sub": "adidas F50 '엘 울티모 탱고' 공개",
+      "candidates": [
+        "./img/mf_cover.jpg",
+        "./img/mf_angle.jpg",
+        "./img/mf_side.jpg",
+        "./img/mf_sole.jpg",
+        "./img/mf_crest.jpg",
+        "./img/mf_heel.jpg"
+      ]
+    },
+    {
+      "image": "./img/mf_angle.jpg",
+      "cat": "FOOTBALL",
+      "tag": "",
+      "head": "",
+      "sub": "",
+      "candidates": [
+        "./img/mf_angle.jpg",
+        "./img/mf_cover.jpg",
+        "./img/mf_side.jpg",
+        "./img/mf_sole.jpg",
+        "./img/mf_crest.jpg",
+        "./img/mf_heel.jpg"
+      ]
+    },
+    {
+      "image": "./img/mf_side.jpg",
+      "cat": "FOOTBALL",
+      "tag": "",
+      "head": "",
+      "sub": "",
+      "candidates": [
+        "./img/mf_side.jpg",
+        "./img/mf_cover.jpg",
+        "./img/mf_angle.jpg",
+        "./img/mf_sole.jpg",
+        "./img/mf_crest.jpg",
+        "./img/mf_heel.jpg"
+      ]
+    },
+    {
+      "image": "./img/mf_sole.jpg",
+      "cat": "FOOTBALL",
+      "tag": "",
+      "head": "",
+      "sub": "",
+      "candidates": [
+        "./img/mf_sole.jpg",
+        "./img/mf_cover.jpg",
+        "./img/mf_angle.jpg",
+        "./img/mf_side.jpg",
+        "./img/mf_crest.jpg",
+        "./img/mf_heel.jpg"
+      ]
+    },
+    {
+      "image": "./img/mf_crest.jpg",
+      "cat": "FOOTBALL",
+      "tag": "",
+      "head": "",
+      "sub": "",
+      "candidates": [
+        "./img/mf_crest.jpg",
+        "./img/mf_cover.jpg",
+        "./img/mf_angle.jpg",
+        "./img/mf_side.jpg",
+        "./img/mf_sole.jpg",
+        "./img/mf_heel.jpg"
+      ]
+    },
+    {
+      "image": "./img/mf_heel.jpg",
+      "cat": "FOOTBALL",
+      "tag": "",
+      "head": "",
+      "sub": "",
+      "candidates": [
+        "./img/mf_heel.jpg",
+        "./img/mf_cover.jpg",
+        "./img/mf_angle.jpg",
+        "./img/mf_side.jpg",
+        "./img/mf_sole.jpg",
+        "./img/mf_crest.jpg"
+      ]
+    }
+  ]
+}
