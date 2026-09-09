@@ -2,60 +2,44 @@
   "id": "2026-09-09_adidas-fall-pack",
   "template": "news",
   "date": "2026-09-09",
-  "title": "아디다스 2026 가을 부츠팩",
+  "title": "아디다스 아이스콜드 프리시전 팩",
   "keep": false,
-  "caption": "adidas가 2026년 가을 부츠 팩을 공개했다.\n\n이번 팩은 F50 하이퍼패스트, F50 스파크퓨전, 코파 퓨어 4를 '펄스 민트(Pulse Mint)' 컬러로 통일했다. F50 하이퍼패스트는 펄스 민트 바탕에 네이비 삼선, '솔라 레몬' 색 브랜딩을 적용했다.\n\n프레데터 26은 블랙 어퍼에 실버와 펄스 민트를 더한 색으로 구성된다.\n\nadidas의 올해 마지막 메인 풋웨어 팩으로, 출시는 2026년 9월로 예정돼 있다. 가격은 공개되지 않았다.\n\n— 출처: Footy Headlines",
+  "caption": "adidas가 '아이스 콜드 프리시전(Ice Cold Precision)' 부츠 팩을 공개했다.\n\n프레데터와 F50, 두 실루엣의 라이벌 구도를 앞세운 팩이다. 프레데터는 밝은 회색 어퍼에 파란 삼선과 네온 옐로 포인트를 더한 '크리스탈 스카이' 계열 컬러로 나왔다.\n\nF50은 블루 컬러로 스피드 라인을 강조했다.\n\n출시는 2026년 3월 30일, adidas와 일부 리테일러에서 시작됐다.\n\n— 출처: SoccerBible, Goal",
   "cards": [
     {
-      "image": "./img/adi_f50.jpg",
+      "image": "./img/ice_cover.jpg",
       "cat": "FOOTBALL",
-      "tag": "신상",
-      "head": "adidas, <span class=\"red\">2026 가을</span> 부츠팩 공개",
-      "sub": "펄스 민트 F50·코파 + 블랙 프레데터 · 9월 출시",
+      "tag": "신컬러",
+      "head": "adidas, <span class=\"red\">프레데터 vs F50</span>",
+      "sub": "'아이스 콜드 프리시전' 팩 공개",
       "candidates": [
-        "./img/adi_f50.jpg",
-        "./img/adi_copa.jpg",
-        "./img/adi_predm.jpg",
-        "./img/adi_predb.jpg"
+        "./img/ice_cover.jpg",
+        "./img/ice_pred.jpg",
+        "./img/ice_f50.jpg"
       ]
     },
     {
-      "image": "./img/adi_copa.jpg",
+      "image": "./img/ice_pred.jpg",
       "cat": "FOOTBALL",
-      "tag": "펄스 민트",
+      "tag": "프레데터",
       "head": "",
       "sub": "",
       "candidates": [
-        "./img/adi_copa.jpg",
-        "./img/adi_f50.jpg",
-        "./img/adi_predm.jpg",
-        "./img/adi_predb.jpg"
+        "./img/ice_pred.jpg",
+        "./img/ice_cover.jpg",
+        "./img/ice_f50.jpg"
       ]
     },
     {
-      "image": "./img/adi_predm.jpg",
+      "image": "./img/ice_f50.jpg",
       "cat": "FOOTBALL",
-      "tag": "펄스 민트",
+      "tag": "F50",
       "head": "",
       "sub": "",
       "candidates": [
-        "./img/adi_predm.jpg",
-        "./img/adi_f50.jpg",
-        "./img/adi_copa.jpg",
-        "./img/adi_predb.jpg"
-      ]
-    },
-    {
-      "image": "./img/adi_predb.jpg",
-      "cat": "FOOTBALL",
-      "tag": "블랙 프레데터",
-      "head": "",
-      "sub": "",
-      "candidates": [
-        "./img/adi_predb.jpg",
-        "./img/adi_f50.jpg",
-        "./img/adi_copa.jpg",
-        "./img/adi_predm.jpg"
+        "./img/ice_f50.jpg",
+        "./img/ice_cover.jpg",
+        "./img/ice_pred.jpg"
       ]
     }
   ]
