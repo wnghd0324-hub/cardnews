@@ -100,15 +100,17 @@ function render(c){
   let bsize="cover";
   if(c._w&&c._h){ const cover=Math.max(1080/c._w,1350/c._h); bsize=(cover*c._w*zoom).toFixed(1)+"px "+(cover*c._h*zoom).toFixed(1)+"px"; }
   const bg=c.image?`<div class="photo" style="background-image:url('${c.image}');background-size:${bsize};background-position:${pos}"></div>`:`<div class="placeholder">⬆ 사진 (image)</div>`;
+  const hasText = c.tag||c.head||c.sub;
+  const lower = hasText ? `<div class="lower">
+      ${c.tag?`<div class="tag">${nl(c.tag)}</div>`:""}
+      ${c.head?`<div class="head">${nl(c.head)}</div>`:""}
+      ${c.sub?`<div class="sub">${nl(c.sub)}</div>`:""}
+    </div>` : "";
   return `${bg}
     <div class="toprow">
       <div class="brand"><span class="bars"></span>${nl(c.brand||BRAND)}</div>
     </div>
-    <div class="lower">
-      ${c.tag?`<div class="tag">${nl(c.tag)}</div>`:""}
-      <div class="head">${nl(c.head||"")}</div>
-      ${c.sub?`<div class="sub">${nl(c.sub)}</div>`:""}
-    </div>
+    ${lower}
     <div class="edge-t"></div><div class="edge-l"></div><div class="edge-r"></div>`;
 }
 
