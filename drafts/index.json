@@ -1,6 +1,20 @@
 {
   "drafts": [
     {
+      "id": "2026-09-09_worldcup-balls",
+      "template": "list",
+      "date": "2026-09-09",
+      "title": "월드컵 공인구의 진화",
+      "keep": false
+    },
+    {
+      "id": "2026-09-09_adidas-fall-pack",
+      "template": "news",
+      "date": "2026-09-09",
+      "title": "아디다스 2026 가을 부츠팩",
+      "keep": false
+    },
+    {
       "id": "2026-09-05_haiti-jersey-ban",
       "template": "story",
       "date": "2026-09-05",

@@ -1,0 +1,110 @@
+{
+  "id": "2026-09-09_worldcup-balls",
+  "template": "list",
+  "date": "2026-09-09",
+  "title": "월드컵 공인구의 진화",
+  "keep": false,
+  "caption": "월드컵은 늘 새로운 공과 함께였습니다. 1970년부터 2026년까지, 공인구의 진화를 다섯 개로 정리했습니다.\n\n1. 텔스타 (1970, 멕시코) — 흑백 TV에 잘 보이도록 검은 오각형을 넣은, 아디다스의 첫 월드컵 공인구입니다.\n\n2. 아즈테카 (1986, 멕시코) — 처음으로 완전 합성 소재로 만들어진 공인구로, 방수성과 내구성이 좋아졌습니다.\n\n3. 퀘스트라 (1994, 미국) — 겉면에 폼 층을 더해, 더 부드럽고 빠른 타구감을 준 공입니다.\n\n4. 알 릴라 (2022, 카타르) — '스피드셸' 표면으로 역대 가장 빠른 비행을 노린 공입니다.\n\n5. 트리온다 (2026) — 미국·캐나다·멕시코가 함께 여는 2026 월드컵의 공인구입니다.\n\n여러분의 '인생 공'은 어떤 건가요? ⚽",
+  "cards": [
+    {
+      "layout": "cover",
+      "image": "./img/ball_alrihla22.jpg",
+      "badge": "킷맨 큐레이션",
+      "head": "월드컵을 빛낸<br>공인구의 진화",
+      "sub": "1970년부터 2026년까지, 다섯 개의 공",
+      "candidates": [
+        "./img/ball_alrihla22.jpg",
+        "./img/ball_telstar70.jpg",
+        "./img/ball_azteca86.jpg",
+        "./img/ball_questra94.jpg",
+        "./img/ball_trionda26.jpg"
+      ]
+    },
+    {
+      "layout": "item",
+      "n": 1,
+      "image": "./img/ball_telstar70.jpg",
+      "name": "텔스타 (1970)",
+      "reason": "",
+      "candidates": [
+        "./img/ball_telstar70.jpg",
+        "./img/ball_azteca86.jpg",
+        "./img/ball_questra94.jpg",
+        "./img/ball_alrihla22.jpg",
+        "./img/ball_trionda26.jpg"
+      ]
+    },
+    {
+      "layout": "item",
+      "n": 2,
+      "image": "./img/ball_azteca86.jpg",
+      "name": "아즈테카 (1986)",
+      "reason": "",
+      "candidates": [
+        "./img/ball_azteca86.jpg",
+        "./img/ball_telstar70.jpg",
+        "./img/ball_questra94.jpg",
+        "./img/ball_alrihla22.jpg",
+        "./img/ball_trionda26.jpg"
+      ]
+    },
+    {
+      "layout": "item",
+      "n": 3,
+      "image": "./img/ball_questra94.jpg",
+      "name": "퀘스트라 (1994)",
+      "reason": "",
+      "candidates": [
+        "./img/ball_questra94.jpg",
+        "./img/ball_telstar70.jpg",
+        "./img/ball_azteca86.jpg",
+        "./img/ball_alrihla22.jpg",
+        "./img/ball_trionda26.jpg"
+      ]
+    },
+    {
+      "layout": "item",
+      "n": 4,
+      "image": "./img/ball_alrihla22.jpg",
+      "name": "알 릴라 (2022)",
+      "reason": "",
+      "candidates": [
+        "./img/ball_alrihla22.jpg",
+        "./img/ball_telstar70.jpg",
+        "./img/ball_azteca86.jpg",
+        "./img/ball_questra94.jpg",
+        "./img/ball_trionda26.jpg"
+      ]
+    },
+    {
+      "layout": "item",
+      "n": 5,
+      "image": "./img/ball_trionda26.jpg",
+      "name": "트리온다 (2026)",
+      "reason": "",
+      "pos": "66% 45%",
+      "candidates": [
+        "./img/ball_trionda26.jpg",
+        "./img/ball_telstar70.jpg",
+        "./img/ball_azteca86.jpg",
+        "./img/ball_questra94.jpg",
+        "./img/ball_alrihla22.jpg"
+      ]
+    },
+    {
+      "layout": "outro",
+      "image": "./img/ball_trionda26.jpg",
+      "head": "공은 계속<br>진화한다",
+      "sub": "2026, 트리온다와 함께 새 월드컵이 열립니다",
+      "follow": "팔로우하고 장비 이야기 더 보기 →",
+      "pos": "66% 45%",
+      "candidates": [
+        "./img/ball_trionda26.jpg",
+        "./img/ball_telstar70.jpg",
+        "./img/ball_azteca86.jpg",
+        "./img/ball_questra94.jpg",
+        "./img/ball_alrihla22.jpg"
+      ]
+    }
+  ]
+}
