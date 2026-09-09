@@ -24,7 +24,7 @@
     {
       "image": "./img/mf_angle.jpg",
       "cat": "FOOTBALL",
-      "tag": "",
+      "tag": "스피드",
       "head": "",
       "sub": "",
       "candidates": [
@@ -39,7 +39,7 @@
     {
       "image": "./img/mf_side.jpg",
       "cat": "FOOTBALL",
-      "tag": "",
+      "tag": "어퍼",
       "head": "",
       "sub": "",
       "candidates": [
@@ -54,7 +54,7 @@
     {
       "image": "./img/mf_solefull.jpg",
       "cat": "FOOTBALL",
-      "tag": "",
+      "tag": "아웃솔",
       "head": "",
       "sub": "",
       "candidates": [
@@ -69,7 +69,7 @@
     {
       "image": "./img/mf_sole.jpg",
       "cat": "FOOTBALL",
-      "tag": "",
+      "tag": "디테일",
       "head": "",
       "sub": "",
       "candidates": [
@@ -84,7 +84,7 @@
     {
       "image": "./img/mf_crest.jpg",
       "cat": "FOOTBALL",
-      "tag": "",
+      "tag": "시그니처",
       "head": "",
       "sub": "",
       "candidates": [
