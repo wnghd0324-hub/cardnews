@@ -16,84 +16,84 @@
         "./img/mf_cover.jpg",
         "./img/mf_angle.jpg",
         "./img/mf_side.jpg",
+        "./img/mf_solefull.jpg",
         "./img/mf_sole.jpg",
-        "./img/mf_crest.jpg",
-        "./img/mf_heel.jpg"
+        "./img/mf_crest.jpg"
       ]
     },
     {
       "image": "./img/mf_angle.jpg",
       "cat": "FOOTBALL",
-      "tag": "",
+      "tag": "스피드",
       "head": "",
-      "sub": "",
+      "sub": "무지갯빛 스피드시스템 솔플레이트",
       "candidates": [
         "./img/mf_angle.jpg",
         "./img/mf_cover.jpg",
         "./img/mf_side.jpg",
+        "./img/mf_solefull.jpg",
         "./img/mf_sole.jpg",
-        "./img/mf_crest.jpg",
-        "./img/mf_heel.jpg"
+        "./img/mf_crest.jpg"
       ]
     },
     {
       "image": "./img/mf_side.jpg",
       "cat": "FOOTBALL",
-      "tag": "",
+      "tag": "어퍼",
       "head": "",
-      "sub": "",
+      "sub": "가볍고 매끈한 스피드 어퍼",
       "candidates": [
         "./img/mf_side.jpg",
         "./img/mf_cover.jpg",
         "./img/mf_angle.jpg",
+        "./img/mf_solefull.jpg",
         "./img/mf_sole.jpg",
-        "./img/mf_crest.jpg",
-        "./img/mf_heel.jpg"
+        "./img/mf_crest.jpg"
       ]
     },
     {
-      "image": "./img/mf_sole.jpg",
+      "image": "./img/mf_solefull.jpg",
       "cat": "FOOTBALL",
-      "tag": "",
+      "tag": "아웃솔",
       "head": "",
-      "sub": "",
+      "sub": "무지갯빛으로 빛나는 밑창",
       "candidates": [
-        "./img/mf_sole.jpg",
-        "./img/mf_cover.jpg",
-        "./img/mf_angle.jpg",
-        "./img/mf_side.jpg",
-        "./img/mf_crest.jpg",
-        "./img/mf_heel.jpg"
-      ]
-    },
-    {
-      "image": "./img/mf_crest.jpg",
-      "cat": "FOOTBALL",
-      "tag": "",
-      "head": "",
-      "sub": "",
-      "candidates": [
-        "./img/mf_crest.jpg",
-        "./img/mf_cover.jpg",
-        "./img/mf_angle.jpg",
-        "./img/mf_side.jpg",
-        "./img/mf_sole.jpg",
-        "./img/mf_heel.jpg"
-      ]
-    },
-    {
-      "image": "./img/mf_heel.jpg",
-      "cat": "FOOTBALL",
-      "tag": "",
-      "head": "",
-      "sub": "",
-      "candidates": [
-        "./img/mf_heel.jpg",
+        "./img/mf_solefull.jpg",
         "./img/mf_cover.jpg",
         "./img/mf_angle.jpg",
         "./img/mf_side.jpg",
         "./img/mf_sole.jpg",
         "./img/mf_crest.jpg"
+      ]
+    },
+    {
+      "image": "./img/mf_sole.jpg",
+      "cat": "FOOTBALL",
+      "tag": "디테일",
+      "head": "",
+      "sub": "밑창에 새긴 메시의 사인",
+      "candidates": [
+        "./img/mf_sole.jpg",
+        "./img/mf_cover.jpg",
+        "./img/mf_angle.jpg",
+        "./img/mf_side.jpg",
+        "./img/mf_solefull.jpg",
+        "./img/mf_crest.jpg"
+      ]
+    },
+    {
+      "image": "./img/mf_crest.jpg",
+      "cat": "FOOTBALL",
+      "tag": "시그니처",
+      "head": "",
+      "sub": "금색 메시 로고",
+      "candidates": [
+        "./img/mf_crest.jpg",
+        "./img/mf_cover.jpg",
+        "./img/mf_angle.jpg",
+        "./img/mf_side.jpg",
+        "./img/mf_solefull.jpg",
+        "./img/mf_sole.jpg"
       ]
     }
   ]
