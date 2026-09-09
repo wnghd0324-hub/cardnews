@@ -12,22 +12,28 @@
       "body": "역사를 새겼다는 이유로 교체당한 하이티 대표팀 유니폼",
       "candidates": [
         "./img/haiti_museum.jpg",
-        "./img/haiti_celebrate.jpg",
+        "./img/haiti_qual.jpg",
         "./img/haiti_revolution.jpg",
+        "./img/haiti_jersey_art.jpg",
         "./img/haiti_blue_emotion.jpg",
-        "./img/haiti_blue_match.jpg"
+        "./img/haiti_blue_match.jpg",
+        "./img/haiti_fans.jpg",
+        "./img/haiti_celebrate.jpg"
       ]
     },
     {
-      "image": "./img/haiti_celebrate.jpg",
+      "image": "./img/haiti_qual.jpg",
       "head": "52년 만의 무대",
       "body": "하이티가 1974년 이후 52년 만에 월드컵 본선에 올랐다.\n오랜 기다림 끝에 찾아온, 나라 전체의 경사였다.",
       "candidates": [
-        "./img/haiti_celebrate.jpg",
+        "./img/haiti_qual.jpg",
         "./img/haiti_museum.jpg",
         "./img/haiti_revolution.jpg",
+        "./img/haiti_jersey_art.jpg",
         "./img/haiti_blue_emotion.jpg",
-        "./img/haiti_blue_match.jpg"
+        "./img/haiti_blue_match.jpg",
+        "./img/haiti_fans.jpg",
+        "./img/haiti_celebrate.jpg"
       ]
     },
     {
@@ -37,22 +43,29 @@
       "candidates": [
         "./img/haiti_revolution.jpg",
         "./img/haiti_museum.jpg",
-        "./img/haiti_celebrate.jpg",
+        "./img/haiti_qual.jpg",
+        "./img/haiti_jersey_art.jpg",
         "./img/haiti_blue_emotion.jpg",
-        "./img/haiti_blue_match.jpg"
+        "./img/haiti_blue_match.jpg",
+        "./img/haiti_fans.jpg",
+        "./img/haiti_celebrate.jpg"
       ]
     },
     {
-      "image": "./img/haiti_celebrate.jpg",
+      "image": "./img/haiti_jersey_art.jpg",
       "head": "유니폼에 새기다",
       "body": "하이티는 이 역사를 유니폼에 담았다.\n흰색 유니폼 오른쪽 허리춤에, 전투 장면과 국기를 그려 넣었다.",
       "candidates": [
-        "./img/haiti_celebrate.jpg",
+        "./img/haiti_jersey_art.jpg",
         "./img/haiti_museum.jpg",
+        "./img/haiti_qual.jpg",
         "./img/haiti_revolution.jpg",
         "./img/haiti_blue_emotion.jpg",
-        "./img/haiti_blue_match.jpg"
-      ]
+        "./img/haiti_blue_match.jpg",
+        "./img/haiti_fans.jpg",
+        "./img/haiti_celebrate.jpg"
+      ],
+      "pos": "14% 52%"
     },
     {
       "image": "./img/haiti_blue_emotion.jpg",
@@ -61,9 +74,12 @@
       "candidates": [
         "./img/haiti_blue_emotion.jpg",
         "./img/haiti_museum.jpg",
-        "./img/haiti_celebrate.jpg",
+        "./img/haiti_qual.jpg",
         "./img/haiti_revolution.jpg",
-        "./img/haiti_blue_match.jpg"
+        "./img/haiti_jersey_art.jpg",
+        "./img/haiti_blue_match.jpg",
+        "./img/haiti_fans.jpg",
+        "./img/haiti_celebrate.jpg"
       ]
     },
     {
@@ -73,9 +89,12 @@
       "candidates": [
         "./img/haiti_blue_match.jpg",
         "./img/haiti_museum.jpg",
-        "./img/haiti_celebrate.jpg",
+        "./img/haiti_qual.jpg",
         "./img/haiti_revolution.jpg",
-        "./img/haiti_blue_emotion.jpg"
+        "./img/haiti_jersey_art.jpg",
+        "./img/haiti_blue_emotion.jpg",
+        "./img/haiti_fans.jpg",
+        "./img/haiti_celebrate.jpg"
       ]
     },
     {
@@ -84,22 +103,28 @@
       "body": "금지된 흰색 유니폼은 6월 13일, 하이티 국립박물관으로 옮겨졌다.\n52년 만의 월드컵 첫 경기를 불과 몇 시간 앞둔 때였다.",
       "candidates": [
         "./img/haiti_museum.jpg",
-        "./img/haiti_celebrate.jpg",
+        "./img/haiti_qual.jpg",
         "./img/haiti_revolution.jpg",
+        "./img/haiti_jersey_art.jpg",
         "./img/haiti_blue_emotion.jpg",
-        "./img/haiti_blue_match.jpg"
+        "./img/haiti_blue_match.jpg",
+        "./img/haiti_fans.jpg",
+        "./img/haiti_celebrate.jpg"
       ]
     },
     {
-      "image": "./img/haiti_revolution.jpg",
+      "image": "./img/haiti_fans.jpg",
       "head": "남은 질문",
       "body": "팬들은 이를 정치가 아니라 '나라의 자부심'으로 여겼다.\n유니폼은 경기장이 아닌 박물관에서, 그 이야기를 잇고 있다.",
       "candidates": [
-        "./img/haiti_revolution.jpg",
+        "./img/haiti_fans.jpg",
         "./img/haiti_museum.jpg",
-        "./img/haiti_celebrate.jpg",
+        "./img/haiti_qual.jpg",
+        "./img/haiti_revolution.jpg",
+        "./img/haiti_jersey_art.jpg",
         "./img/haiti_blue_emotion.jpg",
-        "./img/haiti_blue_match.jpg"
+        "./img/haiti_blue_match.jpg",
+        "./img/haiti_celebrate.jpg"
       ]
     }
   ]
