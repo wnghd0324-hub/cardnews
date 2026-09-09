@@ -24,9 +24,9 @@
     {
       "image": "./img/mf_angle.jpg",
       "cat": "FOOTBALL",
-      "tag": "스피드",
+      "tag": "",
       "head": "",
-      "sub": "무지갯빛 스피드시스템 솔플레이트",
+      "sub": "",
       "candidates": [
         "./img/mf_angle.jpg",
         "./img/mf_cover.jpg",
@@ -39,9 +39,9 @@
     {
       "image": "./img/mf_side.jpg",
       "cat": "FOOTBALL",
-      "tag": "어퍼",
+      "tag": "",
       "head": "",
-      "sub": "가볍고 매끈한 스피드 어퍼",
+      "sub": "",
       "candidates": [
         "./img/mf_side.jpg",
         "./img/mf_cover.jpg",
@@ -54,9 +54,9 @@
     {
       "image": "./img/mf_solefull.jpg",
       "cat": "FOOTBALL",
-      "tag": "아웃솔",
+      "tag": "",
       "head": "",
-      "sub": "무지갯빛으로 빛나는 밑창",
+      "sub": "",
       "candidates": [
         "./img/mf_solefull.jpg",
         "./img/mf_cover.jpg",
@@ -69,9 +69,9 @@
     {
       "image": "./img/mf_sole.jpg",
       "cat": "FOOTBALL",
-      "tag": "디테일",
+      "tag": "",
       "head": "",
-      "sub": "밑창에 새긴 메시의 사인",
+      "sub": "",
       "candidates": [
         "./img/mf_sole.jpg",
         "./img/mf_cover.jpg",
@@ -84,9 +84,9 @@
     {
       "image": "./img/mf_crest.jpg",
       "cat": "FOOTBALL",
-      "tag": "시그니처",
+      "tag": "",
       "head": "",
-      "sub": "금색 메시 로고",
+      "sub": "",
       "candidates": [
         "./img/mf_crest.jpg",
         "./img/mf_cover.jpg",
