@@ -21,9 +21,9 @@
     {
       "image": "./img/ice_pred.jpg",
       "cat": "FOOTBALL",
-      "tag": "프레데터",
-      "head": "",
-      "sub": "",
+      "tag": "파워",
+      "head": "프레데터",
+      "sub": "'크리스탈 스카이' 컬러웨이",
       "candidates": [
         "./img/ice_pred.jpg",
         "./img/ice_cover.jpg",
@@ -33,9 +33,9 @@
     {
       "image": "./img/ice_f50.jpg",
       "cat": "FOOTBALL",
-      "tag": "F50",
-      "head": "",
-      "sub": "",
+      "tag": "스피드",
+      "head": "F50",
+      "sub": "블루 스피드 컬러웨이",
       "candidates": [
         "./img/ice_f50.jpg",
         "./img/ice_cover.jpg",
